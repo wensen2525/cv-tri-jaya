@@ -1,9 +1,13 @@
 <x-app>
-    <div class="container">
-          <div class="row">
-                <div class="col">
-                      <h1>HOME <i class="bi bi-4-square-fill"></i></h1>
-                </div>
-          </div>
-    </div>
+      <section style="background: url('./storage/gambar/Elsa Cosplay.jpg');background-size: cover;background-repeat: no-repeat">
+            <div class="container">
+                  <div class="row">
+                        <div class="col">
+                              <h1>HOME</h1>
+                              <img src="{{ url('./storage/gambar/Elsa Cosplay.jpg') }}" alt="">
+                        </div>
+                  </div>
+            </div>
+      </section>
+    
 </x-app>
