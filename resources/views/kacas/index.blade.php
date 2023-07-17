@@ -3,9 +3,9 @@
             <div class="row">
                   <div class="col">
                         <ul style="list-style: decimal">
-                        @foreach ($kacas as $kaca)
+                        {{-- @foreach ($kacas as $kaca)
                             <li>{{ $kaca->nama }}</li>
-                        @endforeach
+                        @endforeach --}}
                         </ul>
                         
                   </div>
