@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ketebalans', function (Blueprint $table) {
             $table->id();
+            $table->string('tebal');
+            $table->unsignedBigInteger('jenis_id')->nullable();
             $table->timestamps();
         });
     }

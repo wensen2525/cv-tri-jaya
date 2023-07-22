@@ -3,7 +3,7 @@
             <div class="container">
                   <div class="row">
                         <div class="col">
-                              <h1>HOME</h1>
+                              <h1>HOME</h1>halo
                               <img src="{{ url('./storage/gambar/Elsa Cosplay.jpg') }}" alt="">
                         </div>
                   </div>

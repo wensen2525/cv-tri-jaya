@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ukurans', function (Blueprint $table) {
             $table->id();
+            $table->string('ukurans')->unique();
             $table->timestamps();
         });
     }
