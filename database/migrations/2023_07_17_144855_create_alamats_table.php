@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('alamats', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->nullable();
+            $table->string('detailAlamat');
+            $table->string('link_maps')->nullable();
             $table->timestamps();
         });
     }

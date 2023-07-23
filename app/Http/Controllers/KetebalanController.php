@@ -8,59 +8,42 @@ use App\Http\Requests\UpdateKetebalanRequest;
 
 class KetebalanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $ketebalans = Ketebalan::all();
+        return view('ketebalans.index', compact('ketebalans'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('ketebalans.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreKetebalanRequest $request)
     {
-        //
+        Ketebalan::create($request->validated());
+        return redirect()->route('ketebalans.index')->with('success', 'Ketebalan created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Ketebalan $ketebalan)
     {
-        //
+        return view('ketebalans.show', compact('ketebalan'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Ketebalan $ketebalan)
     {
-        //
+        return view('ketebalans.edit', compact('ketebalan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateKetebalanRequest $request, Ketebalan $ketebalan)
     {
-        //
+        $ketebalan->update($request->validated());
+        return redirect()->route('ketebalans.index')->with('success', 'Ketebalan updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Ketebalan $ketebalan)
     {
-        //
+        $ketebalan->delete();
+        return redirect()->route('ketebalans.index')->with('success', 'Ketebalan deleted successfully.');
     }
 }

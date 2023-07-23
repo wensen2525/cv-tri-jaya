@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('cabangs', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->unsignedBigInteger('alamat_id');
+            $table->boolean('apakahCabangUtama')->nullable()->default(false);
             $table->timestamps();
         });
     }

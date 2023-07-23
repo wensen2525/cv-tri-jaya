@@ -8,59 +8,42 @@ use App\Http\Requests\UpdateAlamatRequest;
 
 class AlamatController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $alamats = Alamat::all();
+        return view('alamats.index', compact('alamats'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('alamats.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreAlamatRequest $request)
     {
-        //
+        Alamat::create($request->validated());
+        return redirect()->route('alamats.index')->with('success', 'Alamat created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Alamat $alamat)
     {
-        //
+        return view('alamats.show', compact('alamat'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Alamat $alamat)
     {
-        //
+        return view('alamats.edit', compact('alamat'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateAlamatRequest $request, Alamat $alamat)
     {
-        //
+        $alamat->update($request->validated());
+        return redirect()->route('alamats.index')->with('success', 'Alamat updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Alamat $alamat)
     {
-        //
+        $alamat->delete();
+        return redirect()->route('alamats.index')->with('success', 'Alamat deleted successfully.');
     }
 }

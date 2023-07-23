@@ -1,13 +1,18 @@
 <x-app>
-      <section style="background: url('./storage/gambar/Elsa Cosplay.jpg');background-size: cover;background-repeat: no-repeat">
+      <section>
             <div class="container">
                   <div class="row">
                         <div class="col">
-                              <h1>HOME</h1>
-                              <img src="{{ url('./storage/gambar/Elsa Cosplay.jpg') }}" alt="">
+                              <h1 class="text-center">HOME</h1>
+                              <hr>
+                              {{-- code here --}}
+                              <p>Landing Page</p>
                         </div>
                   </div>
             </div>
       </section>
-    
 </x-app>
+
+{{-- cara ambil gambar --}}
+{{-- style="background: url('./storage/gambar/Elsa Cosplay.jpg'); --}}
+{{-- <img src="{{ url('./storage/gambar/Elsa Cosplay.jpg') }}" alt=""> --}}

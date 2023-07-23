@@ -8,59 +8,42 @@ use App\Http\Requests\UpdateJenisRequest;
 
 class JenisController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $jenises = Jenis::all();
+        return view('jenises.index', compact('jenises'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('jenises.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreJenisRequest $request)
     {
-        //
+        Jenis::create($request->validated());
+        return redirect()->route('jenises.index')->with('success', 'Jenis created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Jenis $jenis)
     {
-        //
+        return view('jenises.show', compact('jenis'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Jenis $jenis)
     {
-        //
+        return view('jenises.edit', compact('jenis'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateJenisRequest $request, Jenis $jenis)
     {
-        //
+        $jenis->update($request->validated());
+        return redirect()->route('jenises.index')->with('success', 'Jenis updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Jenis $jenis)
     {
-        //
+        $jenis->delete();
+        return redirect()->route('jenises.index')->with('success', 'Jenis deleted successfully.');
     }
 }
