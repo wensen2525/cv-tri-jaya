@@ -6,6 +6,3 @@
             </div>
       </div>
 </x-app>
-
-{{-- one value --}}
-{{-- {{ $variable }} --}}
