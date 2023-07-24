@@ -30,7 +30,6 @@
                               </thead>
                               <tbody>
                                 @foreach($kacas as $index => $kaca)
-                                @dd($kaca)
                                 <tr>
                                     <td>{{ $index+1 }}</td>
                                     <td scope="row">{{ $kaca->nama }}</td>
@@ -49,7 +48,8 @@
                                 </tr>
                                 @endforeach
                               </tbody>
-                            </table>
+                        </table>
+                        
                   </div>
             </div>
       </div>

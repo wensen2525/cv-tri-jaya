@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kaca;
+use App\Models\Jenis;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreKacaRequest;
 use App\Http\Requests\UpdateKacaRequest;
-use App\Models\Jenis;
 
 class KacaController extends Controller
 {
@@ -56,12 +57,36 @@ class KacaController extends Controller
 
     public function edit(Kaca $kaca)
     {
-        return view('kacas.edit', compact('kaca'));
+        // dd($kaca);
+        $jenises = Jenis::all();
+
+        // return
+        return view('kacas.edit',[
+            'jenises' => $jenises,
+            'kaca' => $kaca
+        ]);
     }
 
-    public function update(UpdateKacaRequest $request, Kaca $kaca)
+    public function update(Request $request, Kaca $kaca)
     {
-        $kaca->update($request->validated());
+        // dd($request,$kaca);
+        $request->validate([
+            'nama' => ['sometimes', 'required', 'string', 'max:255'],
+            'jenis' => ['sometimes', 'required'],
+            'ukuran' => ['sometimes', 'string', 'max:255'],
+            'warna' => ['sometimes', 'string', 'max:255'],
+            'ketebalan' => ['sometimes', 'required', 'string', 'max:255'],
+            'harga' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'stok' => ['sometimes', 'required', 'numeric', 'min:0'],
+        ]);
+
+        $kaca->update([
+            'jenis_id' => $request->jenis,
+            'nama' => $request->nama,
+            'stok' => $request->stok,
+            'harga' => $request->harga,
+        ]);
+
         return redirect()->route('kaca.index')->with('success', 'Kaca updated successfully');
     }
 
