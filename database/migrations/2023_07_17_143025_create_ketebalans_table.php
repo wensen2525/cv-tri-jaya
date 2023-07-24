@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('tebal');
             $table->unsignedBigInteger('jenis_id')->nullable();
+            $table->foreign('jenis_id')->references('id')->on('jenises')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

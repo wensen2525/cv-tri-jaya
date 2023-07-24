@@ -16,8 +16,8 @@ class Ketebalan extends Model
 
     // relationships
     // example
-    // public function users()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
+    public function kacas()
+    {
+        return $this->hasMany(Kaca::class);
+    }
 }

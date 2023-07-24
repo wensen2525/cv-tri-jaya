@@ -1,6 +1,11 @@
 <x-app>
       <div class="container">
             <div class="row">
+                  <div class="col-12">
+                        <h1 class="text-center"><a href="{{ route('kaca.index') }}" class="text-decoration-none text-dark">KACA</a></h1>
+                        <p class="text-center">edit kaca</p>
+                        <hr>
+                  </div>
                   <div class="col-10">                 
                   </div>
             </div>
