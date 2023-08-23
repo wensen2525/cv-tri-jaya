@@ -7,7 +7,7 @@
                               <hr>
                               {{-- code here --}}
                               <p>Landing Page</p>
-                                <p>Hali</p>
+                                <p>Halu</p>
                         </div>
                   </div>
             </div>
