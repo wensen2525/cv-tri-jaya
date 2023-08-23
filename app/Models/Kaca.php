@@ -16,8 +16,13 @@ class Kaca extends Model
 
     // relationships
     // example
-    // public function users()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
+    public function jenis()
+    {
+        return $this->belongsTo(Jenis::class);
+    }
+
+    public function ketebalan()
+    {
+        return $this->belongsTo(Ketebalan::class);
+    }
 }

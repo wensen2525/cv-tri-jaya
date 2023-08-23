@@ -32,9 +32,9 @@
                 <!-- Left Side Of Navbar -->
                 @auth
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="">DASHBOARD</a></li>
-                  <li class="nav-item"><a class="nav-link" href="">JENIS</a></li>
-                  <li class="nav-item"><a class="nav-link" href="">KACA</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{route('dashboard')}}">DASHBOARD</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{route('jenis.index')}}">JENIS</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{{route('kaca.index')}}">KACA</a></li>
                 </ul>
                 @endauth
 

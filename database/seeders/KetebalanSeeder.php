@@ -16,6 +16,7 @@ class KetebalanSeeder extends Seeder
         DB::table('ketebalans')->insert([
             [
                 'tebal' => 5.5,
+                'jenis_id' => NULL,
             ],
             [
                 'tebal' => 2,
