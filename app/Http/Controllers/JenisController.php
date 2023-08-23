@@ -8,10 +8,11 @@ use App\Http\Requests\UpdateJenisRequest;
 
 class JenisController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+        $this->middleware('admin')->except('index');
+    }
 
     public function index()
     {
@@ -37,18 +38,19 @@ class JenisController extends Controller
 
     public function edit(Jenis $jenis)
     {
+        dd($jenis);
         return view('jenises.edit', compact('jenis'));
     }
 
     public function update(UpdateJenisRequest $request, Jenis $jenis)
     {
         $jenis->update($request->validated());
-        return redirect()->route('jenises.index')->with('success', 'Jenis updated successfully.');
+        return redirect()->route('jenis.index')->with('success', 'Jenis updated successfully.');
     }
 
     public function destroy(Jenis $jenis)
     {
         $jenis->delete();
-        return redirect()->route('jenises.index')->with('success', 'Jenis deleted successfully.');
+        return redirect()->route('jenis.index')->with('success', 'Jenis deleted successfully.');
     }
 }

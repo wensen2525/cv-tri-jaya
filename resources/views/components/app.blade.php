@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id="app">
-      
+    <x-alert></x-alert>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -32,9 +32,13 @@
                 <!-- Left Side Of Navbar -->
                 @auth
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
+                @if(Auth::user()->role == 'ADMIN')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                @elseif (Auth::user()->role == 'USER')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                @endif
+                    <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
                 </ul>
                 @endauth
 

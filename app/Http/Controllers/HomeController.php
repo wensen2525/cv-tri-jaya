@@ -6,23 +6,18 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('dashboard');
+        return view('home');
+    }
+    public function check()
+    {
+        if(auth()->user()->role == 'ADMIN'){
+            return view('dashboard-admin');
+        }elseif(auth()->user()->role == 'USER'){
+            return view('dashboard-user');
+        }else{
+            return view('home')->with('error','Not Authorized!');
+        }
     }
 }

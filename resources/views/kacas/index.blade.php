@@ -4,16 +4,6 @@
                   <div class="col">
                         <h1 class="text-center">KACA</h1>
                         <hr>
-                        @if(session()->has('success'))
-                              <div class="alert alert-success">
-                                    {{ session()->get('success') }}
-                              </div>
-                        @endif
-                        @if(session()->has('not success'))
-                              <div class="alert alert-success">
-                                    {{ session()->get('not success') }}
-                              </div>
-                        @endif
                         {{-- code here --}}
                         <a href="{{ route('kaca.create') }}" class="btn btn-primary">Create Kaca</a>
                         <table class="table">
