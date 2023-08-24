@@ -20,4 +20,9 @@ class HomeController extends Controller
             return view('home')->with('error','Not Authorized!');
         }
     }
+
+    public function product()
+    {
+        return view('product');
+    }
 }
