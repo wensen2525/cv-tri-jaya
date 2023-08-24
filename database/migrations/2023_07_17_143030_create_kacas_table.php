@@ -16,20 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('jenis_id');
             $table->foreign('jenis_id')
             ->references('id')
-            ->on('jenises')
+            ->on('jenis')
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string('nama');
-            $table->unsignedBigInteger('ketebalan_id')->default(1);
-            $table->foreign('ketebalan_id')
-            ->references('id')
-            ->on('ketebalans')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->unsignedBigInteger('bahan_id')->nullable();
-            $table->unsignedBigInteger('impor_ekspor_id')->nullable();
-            $table->integer('stok');
-            $table->integer('harga');
+            $table->string('ketebalan')->nullable();
+            $table->integer('stok')->nullable();
+            $table->integer('harga')->nullable();
             $table->timestamps();
         });
     }
