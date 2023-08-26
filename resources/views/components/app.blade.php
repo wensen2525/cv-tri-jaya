@@ -8,18 +8,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
-
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
 <body>
-    <div id="loading" style="max-height: 100vh;max-width: 100vw; min-height: 100vh;min-width: 100vw;display: flex; justify-content: center; align-items: center">
+    <div id="loading" style="max-height: 100vh;max-width: 100vw; min-height: 100vh;min-width: 100vw;display: flex; justify-content: center; align-items: center;overflow:hidden">
         <lottie-player
             autoplay
             loop
             mode="normal"
-            src='../../assets/loader/loader_animation.json'
-            style="width: 320px"
+            style="width: 10vw"
+            src='{"nm":"profile around","ddd":0,"h":800,"w":800,"meta":{"g":"@lottiefiles/toolkit-js 0.26.1"},"layers":[{"ty":4,"nm":"Shape Layer 1","sr":1,"st":0,"op":308.000012545097,"ip":0,"hd":false,"ddd":0,"bm":0,"hasMask":false,"ao":0,"ks":{"a":{"a":0,"k":[-22,-10,0],"ix":1},"s":{"a":0,"k":[100,100,100],"ix":6},"sk":{"a":0,"k":0},"p":{"a":0,"k":[400,400,0],"ix":2},"r":{"a":1,"k":[{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":60},{"s":[-245],"t":299.00001217852}],"ix":10},"sa":{"a":0,"k":0},"o":{"a":0,"k":100,"ix":11}},"ef":[],"shapes":[{"ty":"gr","bm":0,"hd":false,"mn":"ADBE Vector Group","nm":"Ellipse 1","ix":1,"cix":2,"np":3,"it":[{"ty":"el","bm":0,"hd":false,"mn":"ADBE Vector Shape - Ellipse","nm":"Ellipse Path 1","d":1,"p":{"a":0,"k":[0,0],"ix":3},"s":{"a":0,"k":[668,668],"ix":2}},{"ty":"gs","bm":0,"hd":false,"mn":"ADBE Vector Graphic - G-Stroke","nm":"Gradient Stroke 1","e":{"a":0,"k":[384,8],"ix":5},"g":{"p":9,"k":{"a":0,"k":[0,0.10196078431372549,0.5411764705882353,1,0.111,0.2627450980392157,0.1607843137254902,1,0.25,0.1843137254901961,0.24705882352941178,0.6549019607843137,0.375,0.5372549019607843,0,1,0.5,0.19215686274509805,0.33725490196078434,0.7803921568627451,0.621,0.07450980392156863,0,0.43529411764705883,0.75,0.5372549019607843,0,1,0.875,0.596078431372549,0.058823529411764705,0.8941176470588236,1,0.39215686274509803,0.047058823529411764,0.9607843137254902],"ix":8}},"t":1,"a":{"a":0,"k":0},"h":{"a":0,"k":0},"s":{"a":0,"k":[-388,12],"ix":4},"lc":2,"lj":1,"ml":4,"o":{"a":0,"k":100,"ix":9},"w":{"a":0,"k":24,"ix":10},"d":[{"nm":"dash","n":"d","v":{"a":0,"k":50,"ix":1}},{"nm":"offset","n":"o","v":{"a":0,"k":0,"ix":7}}]},{"ty":"tr","a":{"a":0,"k":[0,0],"ix":1},"s":{"a":0,"k":[100,100],"ix":3},"sk":{"a":0,"k":0,"ix":4},"p":{"a":0,"k":[-22,-10],"ix":2},"r":{"a":0,"k":0,"ix":6},"sa":{"a":0,"k":0,"ix":5},"o":{"a":0,"k":100,"ix":7}}]},{"ty":"tm","bm":0,"hd":false,"mn":"ADBE Vector Filter - Trim","nm":"Trim Paths 1","ix":2,"e":{"a":1,"k":[{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[100],"t":0},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":20},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":40},{"s":[100],"t":60.0000024438501}],"ix":2},"o":{"a":1,"k":[{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":0},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[-250],"t":20},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[-500],"t":40},{"s":[-1071],"t":60.0000024438501}],"ix":3},"s":{"a":1,"k":[{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[100],"t":20},{"o":{"x":0.167,"y":0.167},"i":{"x":0.833,"y":0.833},"s":[0],"t":40},{"s":[0],"t":60.0000024438501}],"ix":1},"m":1}],"ind":1}],"v":"4.10.1","fr":29.9700012207031,"op":300.00001221925,"ip":0,"assets":[]}'
             ></lottie-player>
     </div>
     <div id="app" style="display: none">
@@ -39,12 +38,19 @@
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
                 @if(Auth::user()->role == 'ADMIN')
                     <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                @elseif (Auth::user()->role == 'USER')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                @endif
                     <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('ukuran.index') }}">UKURAN</a></li>
+                @elseif (Auth::user()->role == 'USER')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">PESAN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">KACA</a></li>
+                @endif
+                @guest
+                <a class="dropdown-item" href="/">
+                    {{ __('Home') }}
+                </a>
+                @endguest
                 </ul>
                 @endauth
 
@@ -68,6 +74,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/">
+                                    {{ __('Home') }}
+                                </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

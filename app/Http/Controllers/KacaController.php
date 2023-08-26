@@ -36,19 +36,23 @@ class KacaController extends Controller
     public function store(StoreKacaRequest $request)
     {
         if($request->validated()){
-            Kaca::create([
-                'jenis_id' => $request->jenis_id,
-                'nama' => $request->nama,
-                'stok' => $request->stok,
-                'harga' => $request->harga,
-            ]);
 
+            $fileName = null;
             if ($image = $request->file('image')) {
                 $extension = $request->file('image')->getClientOriginalExtension();
                 $fileName = $request->nama . '.' . $extension;
                 $destinationPath = 'storage/kaca/';
                 $image->move($destinationPath, $fileName);
             }
+            
+            Kaca::create([
+                'jenis_id' => $request->jenis_id,
+                'nama' => $request->nama,
+                'stok' => $request->stok,
+                'harga' => $request->harga,
+                'ketebalan' => $request->ketebalan,
+                'image' => $fileName
+            ]);
 
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');
         }else{
@@ -79,20 +83,29 @@ class KacaController extends Controller
     {
         // dd($request,$kaca);
         $request->validate([
-            'nama' => ['sometimes', 'required', 'string', 'max:255'],
-            'jenis_id' => ['sometimes', 'required'],
-            'ukuran' => ['sometimes', 'string', 'max:255'],
-            'warna' => ['sometimes', 'string', 'max:255'],
-            'ketebalan' => ['sometimes', 'required', 'string', 'max:255'],
-            'harga' => ['sometimes', 'required', 'numeric', 'min:0'],
-            'stok' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'nama' => ['sometimes','required', 'string', 'max:255'],
+            'jenis_id' => ['sometimes','required'],
+            'ketebalan' => ['sometimes','string', 'max:255'],
+            'harga' => ['sometimes','required', 'numeric', 'min:0'],
+            'stok' => ['sometimes','required', 'numeric', 'min:0'],
+            'image' => ['sometimes','image','max:1999', 'mimes:jpg,png,jpeg'],
         ]);
+
+        $fileName = $kaca->image;
+        if ($image = $request->file('image')) {
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileName = $request->nama . '.' . $extension;
+            $destinationPath = 'storage/kaca/';
+            $image->move($destinationPath, $fileName);
+        }
 
         $kaca->update([
             'jenis_id' => $request->jenis_id,
             'nama' => $request->nama,
             'stok' => $request->stok,
             'harga' => $request->harga,
+            'ketebalan' => $request->ketebalan,
+            'image' => $fileName
         ]);
 
         return redirect()->route('kaca.index')->with('success', 'Kaca updated successfully');

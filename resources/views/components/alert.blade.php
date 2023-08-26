@@ -1,14 +1,14 @@
-@if(session()->has('testing'))
+@if(session('testing'))
       <script>alert('{{ session()->get('testing') }}')</script>
 @endif
 
 
-@if(session()->has('error'))
+@if(session('error'))
       <script>alert('{{ session()->get('error') }}')</script>
 @endif
-@if(session()->has('not success'))
+@if(session('not success'))
       <script>alert('{{ session()->get('not success') }}')</script>
 @endif
-@if(session()->has('success'))
+@if(session('success'))
       <script>alert('{{ session()->get('success') }}')</script>
 @endif

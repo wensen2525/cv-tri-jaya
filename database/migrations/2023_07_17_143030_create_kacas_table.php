@@ -20,6 +20,7 @@ return new class extends Migration
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string('nama');
+            $table->string('description')->nullable();
             $table->string('ketebalan')->nullable();
             $table->integer('stok')->nullable();
             $table->integer('harga')->nullable();
