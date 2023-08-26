@@ -12,14 +12,13 @@ class KacaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
-        $this->middleware('admin')->except('index');
+        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     public function index()
     {
-        $kacas = Kaca::with(['jenis','ketebalan'])->get();
-        $jenis_with_ketebalan = Jenis::with('ketebalan');
+        $kacas = Kaca::with(['jenis'])->get();
         return view('kacas.index', compact('kacas'));
     }
 
@@ -38,11 +37,19 @@ class KacaController extends Controller
     {
         if($request->validated()){
             Kaca::create([
-                'jenis_id' => $request->jenis,
+                'jenis_id' => $request->jenis_id,
                 'nama' => $request->nama,
                 'stok' => $request->stok,
                 'harga' => $request->harga,
             ]);
+
+            if ($image = $request->file('image')) {
+                $extension = $request->file('image')->getClientOriginalExtension();
+                $fileName = $request->nama . '.' . $extension;
+                $destinationPath = 'storage/kaca/';
+                $image->move($destinationPath, $fileName);
+            }
+
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');
         }else{
             return redirect()->route('kaca.index')->with('not success', 'Kaca is not created successfully because have some problems');
@@ -73,7 +80,7 @@ class KacaController extends Controller
         // dd($request,$kaca);
         $request->validate([
             'nama' => ['sometimes', 'required', 'string', 'max:255'],
-            'jenis' => ['sometimes', 'required'],
+            'jenis_id' => ['sometimes', 'required'],
             'ukuran' => ['sometimes', 'string', 'max:255'],
             'warna' => ['sometimes', 'string', 'max:255'],
             'ketebalan' => ['sometimes', 'required', 'string', 'max:255'],
@@ -82,7 +89,7 @@ class KacaController extends Controller
         ]);
 
         $kaca->update([
-            'jenis_id' => $request->jenis,
+            'jenis_id' => $request->jenis_id,
             'nama' => $request->nama,
             'stok' => $request->stok,
             'harga' => $request->harga,

@@ -21,6 +21,7 @@ return new class extends Migration
             ->onDelete('cascade');
             $table->string('panjang');
             $table->string('lebar');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

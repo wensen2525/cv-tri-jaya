@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('ketebalan')->nullable();
             $table->integer('stok')->nullable();
             $table->integer('harga')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

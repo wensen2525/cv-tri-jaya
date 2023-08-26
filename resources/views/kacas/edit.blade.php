@@ -12,14 +12,14 @@
                               @method('UPDATE')
                               
                               <div class="mb-3">
-                                    <label for="jenis">Jenis</label>
-                                    <select name="jenis" required>
+                                    <label for="jenis_id">Jenis</label>
+                                    <select name="jenis_id" required>
                                           <option value="{{ $kaca->jenis_id }}" selected>{{ $kaca->jenis->nama }}</option>
                                           @foreach($jenises as $j)
                                                 <option value="{{ $j->id }}">{{ $j->nama }}</option>
                                           @endforeach
                                     </select>
-                                    @error('jenis')
+                                    @error('jenis_id')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>

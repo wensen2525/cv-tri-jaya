@@ -1,3 +1,8 @@
+@if(session()->has('testing'))
+      <script>alert('{{ session()->get('testing') }}')</script>
+@endif
+
+
 @if(session()->has('error'))
       <script>alert('{{ session()->get('error') }}')</script>
 @endif

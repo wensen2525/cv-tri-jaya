@@ -19,24 +19,30 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                @foreach($kacas as $index => $kaca)
-                                <tr>
-                                    <td>{{ $index+1 }}</td>
-                                    <td scope="row">{{ $kaca->nama }}</td>
-                                    <td scope="row">{{ $kaca->jenis->nama }}</td>
-                                    <td scope="row">{{ $kaca->stok }}</td>
-                                    <td scope="row">Rp{{ number_format($kaca->harga) }}</td>
-                                    <td scope="row">{{ $kaca->ketebalan->tebal }} mm</td>
-                                    <td scope="row" class="d-flex gap-2">
-                                          <form id="delete-form" action="{{ route('kaca.destroy', $kaca) }}" method="post" enctype="multipart/form-data">
-                                                @method('DELETE')
-                                                      <button id="delete-btn" class="btn btn-danger">Delete</button>
-                                                @csrf
-                                          </form>
-                                          <a href="{{ route('kaca.edit', $kaca) }}" class="btn btn-warning">Update</a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                    @foreach($kacas as $index => $kaca)
+                                    <tr>
+                                          <td>{{ $index+1 }}</td>
+                                          <td scope="row">{{ $kaca->nama }}</td>
+                                          <td scope="row">{{ $kaca->jenis->nama }}</td>
+                                          <td scope="row">{{ $kaca->stok }}</td>
+                                          <td scope="row">Rp{{ number_format($kaca->harga) }}</td>
+                                          <td scope="row"> 
+                                                @if($kaca->ketebalan == null)
+                                                      -
+                                                @else
+                                                      {{ $kaca->ketebalan }} mm
+                                                @endif
+                                          </td>
+                                          <td scope="row" class="d-flex gap-2">
+                                                <form id="delete-form" action="{{ route('kaca.destroy', $kaca) }}" method="post" enctype="multipart/form-data">
+                                                      @method('DELETE')
+                                                            <button id="delete-btn" class="btn btn-danger">Delete</button>
+                                                      @csrf
+                                                </form>
+                                                <a href="{{ route('kaca.edit', $kaca) }}" class="btn btn-warning">Update</a>
+                                          </td>
+                                    </tr>
+                                    @endforeach
                               </tbody>
                         </table>
                         

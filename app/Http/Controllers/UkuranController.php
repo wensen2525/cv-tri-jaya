@@ -9,6 +9,12 @@ use App\Http\Requests\UpdateUkuranRequest;
 
 class UkuranController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $ukurans = Ukuran::all();
