@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('ukurans', function (Blueprint $table) {
             $table->id();
-            $table->string('ukurans')->unique();
+            $table->unsignedBigInteger('kaca_id');
+            $table->foreign('kaca_id')
+            ->references('id')
+            ->on('kacas')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            $table->string('panjang');
+            $table->string('lebar');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

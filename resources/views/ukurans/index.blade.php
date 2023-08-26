@@ -2,30 +2,34 @@
       <div class="container">
             <div class="row">
                   <div class="col">
-                        <h1 class="text-center">JENIS</h1>
+                        <h1 class="text-center">UKURAN</h1>
                         <hr>
                         {{-- code here --}}
-                        <a href="{{ route('jenis.create') }}" class="btn btn-primary">Create Jenis</a>
+                        <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran Kaca</a>
                         <table class="table">
                               <thead>
                                 <tr>
                                   <th scope="col">#</th>
                                   <th scope="col">Nama</th>
+                                  <th scope="col">Panjang</th>
+                                  <th scope="col">Lebar</th>
                                   <th scope="col">::</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                @foreach($jenises as $index => $jenis)
+                                @foreach($ukurans as $index => $ukuran)
                                 <tr>
                                     <td>{{ $index+1 }}</td>
-                                    <td scope="row">{{ $jenis->nama }}</td>
+                                    <td scope="row">{{ $ukuran->kaca->nama }}</td>
+                                    <td scope="row">{{ $ukuran->panjang }}</td>
+                                    <td scope="row">{{ $ukuran->lebar }}</td>
                                     <td scope="row" class="d-flex gap-2">
-                                          <form id="delete-form" action="{{ route('jenis.destroy', $jenis) }}" method="post" enctype="multipart/form-data">
+                                          <form id="delete-form" action="{{ route('ukuran.destroy', $ukuran) }}" method="post" enctype="multipart/form-data">
                                                 @method('DELETE')
                                                       <button id="delete-btn" class="btn btn-danger">Delete</button>
                                                 @csrf
                                           </form>
-                                          <a href="{{ route('jenis.edit', $jenis) }}" class="btn btn-warning">Update</a>
+                                          <a href="{{ route('ukuran.edit', $ukuran) }}" class="btn btn-warning">Update</a>
                                     </td>
                                 </tr>
                                 @endforeach

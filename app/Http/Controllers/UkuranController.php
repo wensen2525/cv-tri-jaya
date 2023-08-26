@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kaca;
 use App\Models\Ukuran;
 use App\Http\Requests\StoreUkuranRequest;
 use App\Http\Requests\UpdateUkuranRequest;
 
 class UkuranController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     public function index()
     {
         $ukurans = Ukuran::all();
@@ -16,7 +23,9 @@ class UkuranController extends Controller
 
     public function create()
     {
-        return view('ukurans.create');
+        return view('ukurans.create',[
+            'kacas' => Kaca::all(),
+        ]);
     }
     
     public function store(StoreUkuranRequest $request)

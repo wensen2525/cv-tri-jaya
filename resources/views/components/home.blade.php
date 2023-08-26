@@ -34,39 +34,30 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                @auth
+
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
-                @if(Auth::user()->role == 'ADMIN')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('ukuran.index') }}">UKURAN</a></li>
-                @elseif (Auth::user()->role == 'USER')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">PESAN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">KACA</a></li>
-                @endif
-                @guest
-                <a class="dropdown-item" href="/">
-                    {{ __('Home') }}
-                </a>
-                @endguest
+                    <li class="nav-item"><a class="nav-link" href="">PRODUCTS</a></li>
                 </ul>
-                @endauth
+
 
                 <ul class="navbar-nav ms-auto">
                     @guest
-                        @if (Route::has('login'))
+                        @if (Route::has('login') && false)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
-                        @if (Route::has('register'))
+                        @if (Route::has('register') && false)
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href=""></a>
+                        </li>
+
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -74,8 +65,8 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/">
-                                    {{ __('Home') }}
+                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                    {{ __('Dashboard') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();

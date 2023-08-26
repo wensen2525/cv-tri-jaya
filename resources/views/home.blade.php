@@ -1,4 +1,4 @@
-<x-app>
+<x-home>
       <section>
             <div class="container">
                   <div class="row">
@@ -7,12 +7,11 @@
                               <hr>
                               {{-- code here --}}
                               <p>Landing Page</p>
-                                <p>Halusdfghuhg</p>
                         </div>
                   </div>
             </div>
       </section>
-</x-app>
+</x-home>
 
 {{-- cara ambil gambar --}}
 {{-- style="background: url('./storage/gambar/Elsa Cosplay.jpg'); --}}

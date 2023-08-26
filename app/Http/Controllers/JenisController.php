@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jenis;
-use App\Http\Requests\StoreJenisRequest;
-use App\Http\Requests\UpdateJenisRequest;
+use Illuminate\Http\Request;
 
 class JenisController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
 
     public function index()
     {
@@ -19,36 +19,72 @@ class JenisController extends Controller
         return view('jenises.index', compact('jenises'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
         return view('jenises.create');
     }
 
-    public function store(StoreJenisRequest $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        Jenis::create($request->validated());
-        return redirect()->route('jenises.index')->with('success', 'Jenis created successfully.');
+        $request->validate([
+            'nama' => ['required', 'string', 'max:255'],
+        ]);
+
+        Jenis::create([
+            'nama' => $request->nama,
+        ]);
+
+        return redirect()->route('jenis.index')->with('success', 'Jenis created successfully');
     }
 
-    public function show(Jenis $jenis)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Jenis $jeni)
     {
-        return view('jenises.show', compact('jenis'));
+        return view('jenises.show',[
+            'jenis' => $jeni
+        ]);
     }
 
-    public function edit(Jenis $jenis)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Jenis $jeni)
     {
-        return view('jenises.edit', compact('jenis'));
+        return view('jenises.edit',[
+            'jenis' => $jeni
+        ]);
     }
 
-    public function update(UpdateJenisRequest $request, Jenis $jenis)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Jenis $jeni)
     {
-        $jenis->update($request->validated());
-        return redirect()->route('jenises.index')->with('success', 'Jenis updated successfully.');
+        $request->validate([
+            'nama' => ['sometimes', 'required', 'string', 'max:255'],
+        ]);
+
+        $jeni->update([
+            'nama' => $request->nama,
+        ]);
+
+        return redirect()->route('jenis.index')->with('success', 'Jenis updated successfully');
     }
 
-    public function destroy(Jenis $jenis)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Jenis $jeni)
     {
-        $jenis->delete();
-        return redirect()->route('jenises.index')->with('success', 'Jenis deleted successfully.');
+        $jeni->delete();
+        return redirect()->route('jenis.index')->with('success', 'Jenis deleted successfully');
     }
 }

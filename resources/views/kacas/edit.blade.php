@@ -11,39 +11,75 @@
                               @csrf
                               @method('UPDATE')
                               
-                              <div class="mb-3">
-                                    <label for="jenis">Jenis</label>
-                                    <select name="jenis" required>
-                                          <option value="{{ $kaca->jenis_id }}" selected>{{ $kaca->jenis->nama }}</option>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="jenis_id">Jenis<span class="require-input">*</span></label>
+                                    <select class="form-select" name="jenis_id" required>
+                                          <option disabled selected>Pilih Jenis</option>
                                           @foreach($jenises as $j)
-                                                <option value="{{ $j->id }}">{{ $j->nama }}</option>
+                                                <option @if($kaca->jenis_id == $j->id) selected value="{{ $kaca->jenis_id }}" @else value="{{ $j->id }} @endif">{{ $j->nama }}</option>
                                           @endforeach
                                     </select>
-                                    @error('jenis')
+                                    
+                                    @error('jenis_id')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
-                              <div class="mb-3">
-                                    <label for="nama">Nama kaca</label>
-                                    <input type="text" name="nama" value="{{ $kaca->nama }}" required>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="nama">Nama kaca<span class="require-input">*</span></label>
+                                    <input class="form-control" type="text" name="nama" required value="{{$kaca->nama}}">
+                                    
                                     @error('nama')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
-                              <div class="mb-3">
-                                    <label for="stok">Stok</label>
-                                    <input type="number" name="stok" value="{{ $kaca->stok }}" required>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="stok">Stok<span class="require-input">*</span></label>
+                                    <input class="form-control" type="number" name="stok" required value="{{$kaca->stok}}">
+                                    
                                     @error('stok')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
-                              <div class="mb-3">
-                                    <label for="harga">Harga</label>
-                                    <input type="number" name="harga" value="{{ $kaca->harga }}" required>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="harga">Harga<span class="require-input">*</span></label>
+                                    <input class="form-control" type="number" name="harga" required value="{{ $kaca->harga }}">
+                                    
                                     @error('harga')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="ketebalan">Ketebalan</label>
+                                    <div class="input-group">
+                                          <input class="form-control" type="number" name="ketebalan" aria-describedby="ketebalan_input" value="{{ $kaca->ketebalan }}">
+                                          <span class="input-group-text" id="ketebalan_input">mm</span>
+                                    </div>
+                                    
+                                    @error('ketebalan')
+                                          <div class="text-danger" style="font-style: italic">{{ $message }}</div>
+                                    @enderror
+                              </div>
+                              @if($kaca->image)
+                                    <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                          <label for="image">Gambar Baru<span class="require-input">*</span></label>
+                                          <input type="file" class="border" name="image" required>
+                                          @error('image')
+                                                <div class="text-danger" style="font-style: italic">{{ $message }}</div>
+                                          @enderror
+                                    </div>
+                                    <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                          <label>Gambar Lama</label>
+                                          <img src="{{ url('./storage/kaca/'. $kaca->image) }}" alt="{{ $kaca->image }}" class="col-3 img-fluid border border-1 border-black">
+                                    </div>
+                              @else
+                                    <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                          <label for="image">Gambar<span class="require-input">*</span></label>
+                                          <input type="file" class="border" name="image" required>
+                                          @error('image')
+                                                <div class="text-danger" style="font-style: italic">{{ $message }}</div>
+                                          @enderror
+                                    </div>
+                              @endif
 
                               @method('PUT')
                               <button type="submit">Submit</button>
