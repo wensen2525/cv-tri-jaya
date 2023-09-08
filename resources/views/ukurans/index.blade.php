@@ -5,7 +5,7 @@
                         <h1 class="text-center">UKURAN</h1>
                         <hr>
                         {{-- code here --}}
-                        <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran Kaca</a>
+                        <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran</a>
                         <table class="table">
                               <thead>
                                 <tr>
