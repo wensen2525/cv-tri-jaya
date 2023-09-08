@@ -12,7 +12,7 @@
                               @method('UPDATE')
                               <div class="mb-3">
                                     <label for="kaca">Kaca</label>
-                                    <select name="kaca_id" required>
+                                    <select name="kaca_id" required readonly>
                                           <option value="{{ $ukuran->kaca_id }}" selected>{{ $ukuran->kaca->nama }}</option>
                                           @foreach($kacas as $kaca)
                                                 <option value="{{ $kaca->id }}">{{ $kaca->nama }}</option>

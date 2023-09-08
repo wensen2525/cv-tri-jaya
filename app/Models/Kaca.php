@@ -26,4 +26,9 @@ class Kaca extends Model
     {
         return $this->belongsTo(Ketebalan::class);
     }
+
+    public function ukurans()
+    {
+        return $this->hasMany(Ukuran::class);
+    }
 }
