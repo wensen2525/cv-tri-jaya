@@ -11,7 +11,8 @@ class KacaController extends Controller
 {
     public function index()
     {
-        $kacas = Kaca::all();
+        $kacas = Kaca::with(['jenis', 'ketebalan'])->get();
+        $jenis_with_ketebalan = Jenis::with('ketebalan');
         return view('kacas.index', compact('kacas'));
     }
 
@@ -26,9 +27,7 @@ class KacaController extends Controller
 
     public function store(StoreKacaRequest $request)
     {
-        // dd($request);
-        if($request->validated()){
-
+        if ($request->validated()) {
             Kaca::create([
 
                 'jenis_id' => $request->jenis_id,
@@ -38,9 +37,8 @@ class KacaController extends Controller
 
             ]);
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');
-        }
-        else{
-            return redirect()->route('kaca.index')->with('not success', 'Failed');
+        } else {
+            return redirect()->route('kaca.index')->with('not success', 'Kaca is not created successfully because have some problems');
         }
     }
 
@@ -51,7 +49,14 @@ class KacaController extends Controller
 
     public function edit(Kaca $kaca)
     {
-        return view('kacas.edit', compact('kaca'));
+        // dd($kaca);
+        $jenises = Jenis::all();
+
+        // return
+        return view('kacas.edit', [
+            'jenises' => $jenises,
+            'kaca' => $kaca
+        ]);
     }
 
     public function update(UpdateKacaRequest $request, Kaca $kaca)

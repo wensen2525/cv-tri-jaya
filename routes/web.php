@@ -13,7 +13,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/product', [HomeController::class, 'product'])->name('product');
 
-Route::resource('/kaca', KacaController::class);
-
-Route::resource('/jenis', JenisController::class);
+Route::resource('kaca', KacaController::class);
+Route::resource('jenis', JenisController::class);

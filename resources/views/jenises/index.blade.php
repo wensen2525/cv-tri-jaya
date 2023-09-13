@@ -5,6 +5,7 @@
                         <h1 class="text-center">JENIS</h1>
                         <hr>
                         {{-- code here --}}
+                        
                   </div>
             </div>
       </div>
