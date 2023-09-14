@@ -16,8 +16,8 @@ class Ukuran extends Model
 
     // relationships
     // example
-    // public function users()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
+    public function kaca()
+    {
+        return $this->belongsTo(Kaca::class);
+    }
 }

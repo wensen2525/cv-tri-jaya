@@ -9,15 +9,13 @@ class Jenis extends Model
 {
     use HasFactory;
 
-    protected $table = 'jenises';
+    protected $table = 'jenis';
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
 
-    // relationships
-    // example
-    // public function users()
-    // {
-    //     return $this->belongsToMany(User::class);
-    // }
+    public function kacas()
+    {
+        return $this->hasMany(Jenis::class);
+    }
 }

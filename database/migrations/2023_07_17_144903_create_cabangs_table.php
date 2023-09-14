@@ -14,7 +14,14 @@ return new class extends Migration
         Schema::create('cabangs', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->unsignedBigInteger('alamat_id');
+            $table->string('alamat')->nullable();
+            $table->string('nama_kontak_1')->nullable();
+            $table->string('nomor_kontak_1')->nullable();
+            $table->string('nama_kontak_2')->nullable();
+            $table->string('nomor_kontak_2')->nullable();
+            $table->string('nama_kontak_3')->nullable();
+            $table->string('nomor_kontak_3')->nullable();
+            $table->string('gedung_image')->nullable();
             $table->boolean('apakahCabangUtama')->nullable()->default(false);
             $table->timestamps();
         });

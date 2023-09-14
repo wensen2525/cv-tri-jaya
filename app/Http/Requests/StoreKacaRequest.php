@@ -23,12 +23,11 @@ class StoreKacaRequest extends FormRequest
     {
         return [
             'nama' => ['required', 'string', 'max:255'],
-            'jenis' => ['required', 'string', 'max:255'],
-            'ukuran' => ['required', 'string', 'max:255'],
-            'warna' => ['required', 'string', 'max:255'],
-            'ketebalan' => ['required', 'string', 'max:255'],
-            'harga' => ['required', 'nummeric', 'min:0'],
-            'stok' => ['required', 'nummeric', 'min:0'],
+            'jenis_id' => ['required'],
+            'ketebalan' => ['string', 'max:255'],
+            'harga' => ['required', 'numeric', 'min:0'],
+            'stok' => ['required', 'numeric', 'min:0'],
+            'image' => ['image','max:1999', 'mimes:jpg,png,jpeg'],
         ];
     }
 }

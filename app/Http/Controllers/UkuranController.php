@@ -2,27 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kaca;
 use App\Models\Ukuran;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUkuranRequest;
 use App\Http\Requests\UpdateUkuranRequest;
 
 class UkuranController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('admin');
+    }
+
     public function index()
     {
-        $ukurans = Ukuran::all();
-        return view('ukurans.index', compact('ukurans'));
+        // $ukurans = Ukuran::all();
+        $ukurans = Ukuran::with('kaca')->get();
+        // dd($ukurans);
+        return view('ukurans.index',[
+            'ukurans' => $ukurans
+        ]);
     }
 
     public function create()
     {
-        return view('ukurans.create');
+        return view('ukurans.create',[
+            'kacas' => Kaca::all(),
+        ]);
     }
     
-    public function store(StoreUkuranRequest $request)
+    public function store(Request $request)
     {
-        Ukuran::create($request->validated());
-        return redirect()->route('ukurans.index')->with('success', 'Ukuran created successfully.');
+        // dd($request);
+        $request->validate([
+            'kaca_id' => 'required|integer',
+            'panjang' => 'required|integer',
+            'lebar' => 'required|integer',
+        ]);
+
+        Ukuran::create([
+            'kaca_id' => $request->kaca_id,
+            'panjang' => $request->panjang,
+            'lebar' => $request->lebar
+        ]);
+
+        return redirect()->route('ukuran.index')->with('success', 'Ukuran created successfully.');
     }
 
     public function show(Ukuran $ukuran)
@@ -32,18 +58,31 @@ class UkuranController extends Controller
 
     public function edit(Ukuran $ukuran)
     {
-        return view('ukurans.edit', compact('ukuran'));
+        return view('ukurans.edit', [
+            'ukuran' => $ukuran,
+            'kacas' => Kaca::all(),
+        ]);
     }
 
-    public function update(UpdateUkuranRequest $request, Ukuran $ukuran)
+    public function update(Request $request, Ukuran $ukuran)
     {
-        $ukuran->update($request->validated());
-        return redirect()->route('ukurans.index')->with('success', 'Ukuran updated successfully.');
+        $request->validate([
+            'kaca_id' => 'sometimes|required',
+            'panjang' => 'sometimes|required|integer',
+            'lebar' => 'sometimes|required|integer',
+        ]);
+
+        $ukuran->update([
+            'panjang' => $request->panjang,
+            'lebar' => $request->lebar,
+        ]);
+        
+        return redirect()->route('ukuran.index')->with('success', 'Ukuran updated successfully.');
     }
 
     public function destroy(Ukuran $ukuran)
     {
         $ukuran->delete();
-        return redirect()->route('ukurans.index')->with('success', 'Ukuran deleted successfully.');
+        return redirect()->route('ukuran.index')->with('success', 'Ukuran deleted successfully.');
     }
 }
