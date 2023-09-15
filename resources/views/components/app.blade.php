@@ -9,11 +9,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
-
-    <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
-
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
@@ -79,15 +74,25 @@
                 <!-- Left Side Of Navbar -->
                 @auth
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
-                  <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
+                @if(Auth::user()->role == 'ADMIN')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('ukuran.index') }}">UKURAN</a></li>
+                @elseif (Auth::user()->role == 'USER')
+                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">PESAN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">KACA</a></li>
+                @endif
+                @guest
+                <a class="dropdown-item" href="/">
+                    {{ __('Home') }}
+                </a>
+                @endguest
                 </ul>
                 @endauth
 
-                <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
-                    <!-- Authentication Links -->
                     @guest
                         @if (!Route::has('login'))
                             <li class="nav-item">
@@ -106,12 +111,15 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/">
+                                    {{ __('Home') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

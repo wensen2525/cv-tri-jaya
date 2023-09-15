@@ -1,3 +1,24 @@
 body{
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Sen', sans-serif;
+}
+
+:root{
+      --input-border: #b8b8b8;
+
+}
+
+//input style
+.require-input{
+      padding-left: 5px;
+      padding-right: 5px;
+      color: red;
+}
+input.form-control{
+      border: 1px solid var(--input-border);
+}
+select.form-select{
+      border: 1px solid var(--input-border);
+}
+span.input-group-text{
+      border: 1px solid var(--input-border);
 }

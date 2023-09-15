@@ -23,12 +23,12 @@ class UpdateKacaRequest extends FormRequest
     {
         return [
             'nama' => ['sometimes', 'required', 'string', 'max:255'],
-            'jenis' => ['sometimes', 'required', 'string', 'max:255'],
-            'ukuran' => ['sometimes', 'required', 'string', 'max:255'],
-            'warna' => ['sometimes', 'required', 'string', 'max:255'],
+            'jenis' => ['sometimes', 'required'],
+            'ukuran' => ['sometimes', 'string', 'max:255'],
+            'warna' => ['sometimes', 'string', 'max:255'],
             'ketebalan' => ['sometimes', 'required', 'string', 'max:255'],
-            'harga' => ['sometimes', 'required', 'numeric'],
-            'stok' => ['sometimes', 'required', 'numeric'],
+            'harga' => ['sometimes', 'required', 'numeric', 'min:0'],
+            'stok' => ['sometimes', 'required', 'numeric', 'min:0'],
         ];
     }
 }
