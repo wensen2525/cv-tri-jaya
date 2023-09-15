@@ -13,7 +13,6 @@ Auth::routes();
 //landing page
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/unauthorized', [HomeController::class, 'unAuthorized'])->name('un-authorized');
-Route::get('/product', [HomeController::class, 'product']);
 
 //dashboard
 Route::get('/dashboard', [HomeController::class, 'check'])->name('dashboard');
