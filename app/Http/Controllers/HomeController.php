@@ -38,11 +38,6 @@ class HomeController extends Controller
 
     public function product()
     {
-        return view('product');
-    }
-
-    public function product()
-    {
         // Retrieve the data related to kaca
         $kacas = Kaca::with(['jenis', 'ketebalan'])->get();
         $jenises = Jenis::all();
