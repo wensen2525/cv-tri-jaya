@@ -65,7 +65,7 @@
                                                     <div class="kaca-img rounded-top"></div>
                                                 @endif
                                                 {{-- Placeholder nama kaca --}}
-                                                <p class="kaca-nama-placeholder px-4 pt-3 pb-2">{{ $kaca->nama }} halo</p>
+                                                <p class="kaca-nama-placeholder px-4 pt-3 pb-2">{{ $kaca->nama }}</p>
                                                 {{-- 3 Dot Ornament --}}
                                                 <div class="position-absolute bottom-0 end-0 pb-3 pe-3">
                                                     <img src="{{ url('./storage/gambar/3dot.png') }}" alt="3dot" class="dot-decoration-img">
