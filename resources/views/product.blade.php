@@ -15,6 +15,18 @@
                                 </a>   
                             </li>
                         @endforeach
+                        <div class="mobile-nav dropdown center">
+                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow p-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Pilih Jenis Kaca
+                            </button>
+                            <ul class="mobile-nav-dropdown dropdown-menu">
+                                @foreach ($jenises as $jenis)
+                                    <li><a class="dropdown-item" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
+                                    href="#list-{{ $jenis->nama }}" role="tab"
+                                    aria-controls="list-{{ $jenis->nama }}">{{ $jenis->nama }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -110,6 +122,10 @@
 
         color: #1e1e1e;
     }
+    .mobile-nav{
+
+        display: none;
+    }
     .heading-container{
 
         font-size: 1.75rem;
@@ -199,6 +215,22 @@
         .nav-link{
 
             font-size: 1rem;
+            display: none;
+        }
+        .mobile-nav{
+
+            display:block;
+            width: 100%;
+        }
+        .mobile-nav-btn{
+
+            width: 100%;
+            background-color: #FFFFFF;
+            color: #1e1e1e;
+        }
+        .mobile-nav-dropdown{
+
+            width: 100%;
         }
         .heading-container{
 
