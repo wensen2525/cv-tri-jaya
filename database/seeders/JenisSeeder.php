@@ -13,7 +13,7 @@ class JenisSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('jenises')->insert([
+        DB::table('jenis')->insert([
             [
                 'nama' => 'Polos',
             ],
