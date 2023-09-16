@@ -5,7 +5,7 @@
                         <h1 class="text-center">DASHBOARD</h1>
                         <hr>
                         {{-- code here --}}
-                        <p>Page after login and register</p>
+                        <p>test</p>
                   </div>
             </div>
       </div>

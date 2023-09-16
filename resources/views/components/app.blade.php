@@ -37,7 +37,7 @@
                             <div class="offcanvas-body navmenu-container">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
                                     <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="#">HOME</a>
+                                        <a class="nav-link" aria-current="page" href="{{ url('/')}}">HOME</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/product') }}">PRODUCT</a>

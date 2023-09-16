@@ -1,4 +1,4 @@
-<x-home>
+<x-app>
       <section>
             <div class="container">
                   <div class="row">
@@ -12,7 +12,7 @@
                   </div>
             </div>
       </section>
-</x-home>
+</x-app>
 
 {{-- cara ambil gambar --}}
 {{-- style="background: url('./storage/gambar/Elsa Cosplay.jpg'); --}}

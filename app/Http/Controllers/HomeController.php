@@ -36,6 +36,7 @@ class HomeController extends Controller
         
     }
 
+
     public function product()
     {
         // Retrieve the data related to kaca
