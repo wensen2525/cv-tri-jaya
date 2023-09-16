@@ -8,7 +8,7 @@
                     <ul class="nav justify-content-center">
                         @foreach ($jenises as $jenis)
                             <li class="nav-item">
-                                <a class="nav-link @if ($loop->first) active @endif text-decoration-none"
+                                <a class="tab-kaca nav-link @if ($loop->first) active @endif text-decoration-none"
                                     id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
                                     href="#list-{{ $jenis->nama }}" role="tab"
                                     aria-controls="list-{{ $jenis->nama }}">KACA {{ $jenis->nama }}
@@ -216,10 +216,13 @@
 
             margin-top: 50px;
         }
+        .tab-kaca{
+
+            display: none;
+        }
         .nav-link{
 
             font-size: 1rem;
-            display: none;
         }
         .mobile-nav{
 
