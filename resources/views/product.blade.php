@@ -16,7 +16,7 @@
                             </li>
                         @endforeach
                         <div class="mobile-nav dropdown center">
-                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow p-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow-sm p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Pilih Jenis Kaca
                             </button>
                             <ul class="mobile-nav-dropdown dropdown-menu">
@@ -212,6 +212,10 @@
 
             margin-inline: 25px;
         }
+        .nav{
+
+            margin-top: 50px;
+        }
         .nav-link{
 
             font-size: 1rem;
@@ -227,10 +231,13 @@
             width: 100%;
             background-color: #FFFFFF;
             color: #1e1e1e;
+            border-radius: 2px;
+            border: none;
         }
         .mobile-nav-dropdown{
 
             width: 100%;
+            border-radius: 2px;
         }
         .heading-container{
 
