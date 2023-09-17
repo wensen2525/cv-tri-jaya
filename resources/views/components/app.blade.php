@@ -37,13 +37,13 @@
                             <div class="offcanvas-body navmenu-container">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
                                     <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="{{ url('/')}}">HOME</a>
+                                        <a class="navmenu nav-link" aria-current="page" href="{{ url('/')}}">HOME</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/product') }}">PRODUCT</a>
+                                        <a class="navmenu nav-link" href="{{ url('/product') }}">PRODUCT</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">PROJECT</a>
+                                        <a class="navmenu nav-link" href="#">PROJECT</a>
                                     </li>
                             </div>
                         </div>
@@ -141,9 +141,10 @@
 </html>
 
 <style>
+
     .nav-container {
 
-        height: 115px;
+        height: 90px;
     }
 
     .left-nav-container {
@@ -169,22 +170,19 @@
         font-size: 1.25rem;
         font-weight: 500;
     }
-
-    .navmenu {
-
-        color: #1e1e1e
-    }
-
-    .navmenu:hover {
-
-        font-weight: 700
-    }
-
     .navmenu-container {
 
         margin-inline-end: 70px;
     }
+    .navmenu{
 
+        color: #1e1e1e;
+    }
+    .navmenu:hover{
+
+        color: #CAB172;
+        font-weight: 700;
+    }
     .burger-icon {
 
         visibility: hidden;
@@ -250,5 +248,16 @@
 
             color: #5181C1;
         }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: #d2d2d2;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #5181C1;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #1c457a;
     }
 </style>

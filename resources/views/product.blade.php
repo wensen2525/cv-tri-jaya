@@ -11,19 +11,31 @@
                                 <a class="tab-kaca nav-link @if ($loop->first) active @endif text-decoration-none"
                                     id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
                                     href="#list-{{ $jenis->nama }}" role="tab"
-                                    aria-controls="list-{{ $jenis->nama }}">KACA {{ $jenis->nama }}
+                                    aria-controls="list-{{ $jenis->nama }}">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        KACA {{ $jenis->nama }}
+                                    @endif
+                                    
                                 </a>   
                             </li>
                         @endforeach
                         <div class="mobile-nav dropdown center">
-                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow-sm p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow-sm p-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Pilih Jenis Kaca
                             </button>
                             <ul class="mobile-nav-dropdown dropdown-menu">
                                 @foreach ($jenises as $jenis)
-                                    <li><a class="dropdown-item" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
+                                    <li><a class="mobile-menu-dropdown dropdown-item" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
                                     href="#list-{{ $jenis->nama }}" role="tab"
-                                    aria-controls="list-{{ $jenis->nama }}">{{ $jenis->nama }}</a></li>
+                                    aria-controls="list-{{ $jenis->nama }}">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        KACA {{ $jenis->nama }}
+                                    @endif
+                                    </a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -41,7 +53,7 @@
                         <div>
                             {{-- Intro Jenis Kaca --}}
                             <div class="heading-container row gap-2">
-                                <div class="jenis-container col py-2 px-4">Kaca {{ $jenis->nama }}</div>
+                                <div class="jenis-container col py-2 px-3">Kaca {{ $jenis->nama }}</div>
                                 <a class="ukuran-btn col py-2 text-center" href="">
                                     <i class="bi bi-info-circle me-3"></i>Cek Ukuran</a>
                             </div>
@@ -65,7 +77,7 @@
                                         {{-- Untuk grouping tiap kaca yang di input berdasarkan jenisnya --}}
                                         @if ($kaca->jenis->nama == $jenis->nama)
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2">
-                                                <div class="kaca-container pb-3 rounded shadow bg-body-tertiary position-relative">
+                                                <div class="kaca-container pb-3 rounded shadow-sm bg-body-tertiary position-relative">
                                                 {{-- Placeholder gambar kaca -> Format penamaan gambar kaca :  [nama_kaca].[png/jpeg/jpg]  --}}
                                                 @if(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.png')))
                                                     <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.png') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
@@ -108,19 +120,24 @@
         margin-top: 75px;
         margin-bottom: 50px;
     }
-    .nav-link {
+    .tab-kaca {
 
         text-transform: uppercase;
         color: #1e1e1e;
     }
-    .nav-link:hover {
+    .tab-kaca:hover {
 
-        color: #1e1e1e;
+        color: #CAB172;
         font-weight: 700;
     }
-    .nav-link:focus {
+    .tab-kaca:focus {
 
-        color: #1e1e1e;
+        color: #CAB172;
+    }
+    .tab-kaca.active {
+
+        color: #CAB172;
+        font-weight: 700;
     }
     .mobile-nav{
 
@@ -182,11 +199,10 @@
 
             margin-inline: 50px;
         }
-        .nav-link{
+        .tab-kaca{
 
             font-size: 1.25rem;
         }
-
         .deskripsi-placeholder{
 
             font-size: 1rem;
@@ -206,7 +222,7 @@
         }
     }
 
-    @media only screen and (max-width: 576px){
+    @media only screen and (max-width: 780px){
 
         .content-container{
 
@@ -215,13 +231,11 @@
         .nav{
 
             margin-top: 50px;
+            margin-bottom: 25px;
         }
         .tab-kaca{
 
             display: none;
-        }
-        .nav-link{
-
             font-size: 1rem;
         }
         .mobile-nav{
@@ -232,15 +246,28 @@
         .mobile-nav-btn{
 
             width: 100%;
-            background-color: #FFFFFF;
-            color: #1e1e1e;
+            color: #FFFFFF;
             border-radius: 2px;
-            border: none;
+            border: none;        
         }
         .mobile-nav-dropdown{
 
+            text-transform: uppercase;
+            text-align: center;
             width: 100%;
             border-radius: 2px;
+        }
+        .mobile-menu-dropdown:focus{
+
+            background-color: #CAB172;
+        }
+        .mobile-menu-dropdown.active{
+
+            background-color: #CAB172;
+        }
+        .mobile-menu-dropdown:active{
+
+            background-color: #CAB172;
         }
         .heading-container{
 
