@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kaca;
 use App\Models\Jenis;
+use App\Models\Proyek;
+
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','product','unAuthorized']);
+        $this->middleware('auth')->except(['index','product','project','unAuthorized']);
     }
     public function index()
     {
@@ -43,5 +45,10 @@ class HomeController extends Controller
         $jenises = Jenis::all();
         // Pass the data to the 'product' view
         return view('product', compact('kacas', 'jenises'));
+    }
+
+    public function project(){
+        $proyeks = Proyek::all();
+        return view('project', compact('proyeks'));
     }
 }
