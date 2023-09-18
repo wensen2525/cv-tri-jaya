@@ -75,7 +75,7 @@
                                     {{-- Loop untuk ngambil nama kaca --}}
                                     @foreach ($kacas as $kaca)
                                         {{-- Untuk grouping tiap kaca yang di input berdasarkan jenisnya --}}
-                                        @if ($kaca->jenis->nama == $jenis->nama)
+                                        @if ($kaca->jenis->nama == $jenis->nama)    
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2">
                                                 <div class="kaca-container pb-3 rounded shadow-sm bg-body-tertiary position-relative">
                                                 {{-- Placeholder gambar kaca -> Format penamaan gambar kaca :  [nama_kaca].[png/jpeg/jpg]  --}}
@@ -128,7 +128,6 @@
     .tab-kaca:hover {
 
         color: #CAB172;
-        font-weight: 700;
     }
     .tab-kaca:focus {
 
@@ -170,13 +169,13 @@
     }
     .kaca-container{
         
-        height: 480px;
+        height: 420px;
         min-width: 240px;
         /* max-width: 410px; */
     }
     .kaca-img{
 
-        height: 350px;
+        height: 300px;
         width: 100%;
         object-fit: cover;
         background-color: #1e1e1e;
@@ -189,8 +188,8 @@
     }
     .dot-decoration-img{
 
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
 
     @media only screen and (max-width: 1170px){
@@ -248,7 +247,8 @@
             width: 100%;
             color: #FFFFFF;
             border-radius: 2px;
-            border: none;        
+            border: none;    
+            font-weight: 700;    
         }
         .mobile-nav-dropdown{
 
@@ -287,7 +287,7 @@
             text-decoration: none;
             color: #FFFFFF;
             max-width: 282px;
-            border-radius: 2px;
+            border-radius: 2px;     
         }
     }
 </style>

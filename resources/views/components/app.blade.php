@@ -135,6 +135,26 @@
         <main>
             {{ $slot }}
         </main>
+
+        <div class="footer-container card-footer p-3 mt-5">
+
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <a href="">CV TRI JAYA</a>
+                        <a href="">Product</a>
+                        <a href="">Project</a>
+                    </div>
+
+                </div>
+                <div class="col">
+                    Product
+                </div>
+                <div class="col">
+                    Project
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -186,6 +206,10 @@
     .burger-icon {
 
         visibility: hidden;
+    }
+    .footer-container{
+
+        background-color: red;
     }
 
     @media only screen and (max-width: 1170px) {
@@ -258,6 +282,6 @@
         border-radius: 50px;
     }
     ::-webkit-scrollbar-thumb:hover {
-        background-color: #1c457a;
+        background-color: #4079c3;
     }
 </style>
