@@ -136,22 +136,42 @@
             {{ $slot }}
         </main>
 
-        <div class="footer-container card-footer p-3 mt-5">
+        <div class="footer-container card-footer mt-5">
 
             <div class="row">
-                <div class="col">
+                <div class="col-xl-4 col-md-4">
                     <div class="row">
-                        <a href="">CV TRI JAYA</a>
-                        <a href="">Product</a>
-                        <a href="">Project</a>
+                        <a href="" class="footer-company-name">CV TRI JAYA</a>
+                        <p class="footer-address">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan<br>Banten 15418</p>
+                        <p class="footer-copyright"><i class="bi bi-c-circle"></i>&nbsp CV Tri Jaya - Indonesia</p>
                     </div>
 
                 </div>
-                <div class="col">
-                    Product
+                <div class="contact-menu-container col-md-4 col-lg-3">
+                    <p class="footer-menu-header mb-4">CONTACT US</p>
+                    <a href="" class="footer-menu-btn px-4 py-2 me-2 d-inline-block"><i class="bi bi-envelope-at pe-2 text-warning"></i> Gmail</a>
+                    <a href="" class="footer-menu-btn px-4 py-2 me-2 mt-2 d-inline-block "><i class="bi bi-whatsapp pe-2 text-success"></i> Whatsapp</a>
                 </div>
-                <div class="col">
-                    Project
+                <div class="explore-menu-container col-md-2">
+                    <p class="footer-menu-header">EXPLORE</p>
+                    <div class="row gap-1">
+                        <a href="" class="footer-menu">Home</a>
+                        <a href="" class="footer-menu">Product</a>
+                        <a href="" class="footer-menu">Project</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <div class="jadwal-menu-container row">
+                        <p class="footer-menu-header p-0">JADWAL BUKA</p>
+                        <div class="col p-0">
+                            <div class="footer-menu">Senin - Sabtu</div>
+                            <div class="footer-menu">Minggu</div>
+                        </div>
+                        <div class="col p-0">
+                            <div class="footer-menu">08.15 - 16.30 WIB</div>
+                            <div class="footer-menu">TUTUP</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -209,7 +229,46 @@
     }
     .footer-container{
 
-        background-color: red;
+        background-color: #1e1e1e;
+        padding: 50px 100px 50px 100px;
+    }
+    .footer-company-name{
+
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-address{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-copyright{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-menu-header{
+
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    .footer-menu-btn{
+
+        background-color: #1e1e1e;
+        border: 1px solid #FFFFFF;
+        border-radius: 2px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-menu{
+
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: #FFFFFF;
     }
 
     @media only screen and (max-width: 1170px) {
@@ -227,6 +286,10 @@
         .navmenu-container {
 
             margin-inline-end: 30px;
+        }
+        .footer-container{
+
+            padding: 50px 50px 50px 50px;
         }
     }
 
@@ -271,6 +334,14 @@
         .burger-item-close{
 
             color: #5181C1;
+        }
+        .explore-menu-container{
+
+            display: none;
+        }
+        .jadwal-menu-container{
+
+            display: none;
         }
     }
     ::-webkit-scrollbar {

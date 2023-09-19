@@ -53,9 +53,15 @@
                         <div>
                             {{-- Intro Jenis Kaca --}}
                             <div class="heading-container row gap-2">
-                                <div class="jenis-container col py-2 px-3">Kaca {{ $jenis->nama }}</div>
+                                <div class="jenis-container col py-2 px-3">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        Kaca {{ $jenis->nama }}
+                                    @endif 
+                                </div>
                                 <a class="ukuran-btn col py-2 text-center" href="">
-                                    <i class="bi bi-info-circle me-3"></i>Cek Ukuran</a>
+                                    <i class="info-icon bi bi-info-circle me-3"></i>Cek Ukuran</a>
                             </div>
 
                             <p class="deskripsi-placeholder my-4">Lorem ipsum dolor sit amet,
@@ -79,12 +85,12 @@
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2">
                                                 <div class="kaca-container pb-3 rounded shadow-sm bg-body-tertiary position-relative">
                                                 {{-- Placeholder gambar kaca -> Format penamaan gambar kaca :  [nama_kaca].[png/jpeg/jpg]  --}}
-                                                @if(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.png')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.png') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
-                                                @elseif(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.jpeg')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.jpeg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
-                                                @elseif(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.jpg')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.jpg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @if(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.png')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.png') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @elseif(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.jpeg')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.jpeg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @elseif(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.jpg')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.jpg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
                                                 @else
                                                     <div class="kaca-img rounded-top"></div>
                                                 @endif
@@ -288,6 +294,13 @@
             color: #FFFFFF;
             max-width: 282px;
             border-radius: 2px;     
+        }
+    }
+    @media only screen and (max-width: 330px){
+
+        .info-icon{
+
+            display: none;
         }
     }
 </style>
