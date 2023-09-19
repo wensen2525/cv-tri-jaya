@@ -8,13 +8,37 @@
                     <ul class="nav justify-content-center">
                         @foreach ($jenises as $jenis)
                             <li class="nav-item">
-                                <a class="nav-link @if ($loop->first) active @endif text-decoration-none"
+                                <a class="tab-kaca nav-link @if ($loop->first) active @endif text-decoration-none"
                                     id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
                                     href="#list-{{ $jenis->nama }}" role="tab"
-                                    aria-controls="list-{{ $jenis->nama }}">KACA {{ $jenis->nama }}
+                                    aria-controls="list-{{ $jenis->nama }}">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        KACA {{ $jenis->nama }}
+                                    @endif
+                                    
                                 </a>   
                             </li>
                         @endforeach
+                        <div class="mobile-nav dropdown center">
+                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow-sm p-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Pilih Jenis Kaca
+                            </button>
+                            <ul class="mobile-nav-dropdown dropdown-menu">
+                                @foreach ($jenises as $jenis)
+                                    <li><a class="mobile-menu-dropdown dropdown-item" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
+                                    href="#list-{{ $jenis->nama }}" role="tab"
+                                    aria-controls="list-{{ $jenis->nama }}">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        KACA {{ $jenis->nama }}
+                                    @endif
+                                    </a></li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -29,9 +53,15 @@
                         <div>
                             {{-- Intro Jenis Kaca --}}
                             <div class="heading-container row gap-2">
-                                <div class="jenis-container col py-2 px-4">Kaca {{ $jenis->nama }}</div>
+                                <div class="jenis-container col py-2 px-3">
+                                    @if ($jenis->nama == "Cermin")
+                                        {{ $jenis->nama }}
+                                    @else
+                                        Kaca {{ $jenis->nama }}
+                                    @endif 
+                                </div>
                                 <a class="ukuran-btn col py-2 text-center" href="">
-                                    <i class="bi bi-info-circle me-3"></i>Cek Ukuran</a>
+                                    <i class="info-icon bi bi-info-circle me-3"></i>Cek Ukuran</a>
                             </div>
 
                             <p class="deskripsi-placeholder my-4">Lorem ipsum dolor sit amet,
@@ -51,16 +81,16 @@
                                     {{-- Loop untuk ngambil nama kaca --}}
                                     @foreach ($kacas as $kaca)
                                         {{-- Untuk grouping tiap kaca yang di input berdasarkan jenisnya --}}
-                                        @if ($kaca->jenis->nama == $jenis->nama)
+                                        @if ($kaca->jenis->nama == $jenis->nama)    
                                             <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 p-2">
-                                                <div class="kaca-container pb-3 rounded shadow bg-body-tertiary position-relative">
+                                                <div class="kaca-container pb-3 rounded shadow-sm bg-body-tertiary position-relative">
                                                 {{-- Placeholder gambar kaca -> Format penamaan gambar kaca :  [nama_kaca].[png/jpeg/jpg]  --}}
-                                                @if(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.png')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.png') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
-                                                @elseif(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.jpeg')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.jpeg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
-                                                @elseif(file_exists(public_path('./storage/gambar/' . $kaca->nama . '.jpg')))
-                                                    <img src="{{ asset('./storage/gambar/' . $kaca->nama . '.jpg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @if(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.png')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.png') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @elseif(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.jpeg')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.jpeg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
+                                                @elseif(file_exists(public_path('./storage/kaca/' . $kaca->nama . '.jpg')))
+                                                    <img src="{{ asset('./storage/kaca/' . $kaca->nama . '.jpg') }}" alt="Gambar Produk Kaca" class="kaca-img rounded-top">
                                                 @else
                                                     <div class="kaca-img rounded-top"></div>
                                                 @endif
@@ -96,19 +126,27 @@
         margin-top: 75px;
         margin-bottom: 50px;
     }
-    .nav-link {
+    .tab-kaca {
 
         text-transform: uppercase;
         color: #1e1e1e;
     }
-    .nav-link:hover {
+    .tab-kaca:hover {
 
-        color: #1e1e1e;
+        color: #CAB172;
+    }
+    .tab-kaca:focus {
+
+        color: #CAB172;
+    }
+    .tab-kaca.active {
+
+        color: #CAB172;
         font-weight: 700;
     }
-    .nav-link:focus {
+    .mobile-nav{
 
-        color: #1e1e1e;
+        display: none;
     }
     .heading-container{
 
@@ -137,13 +175,13 @@
     }
     .kaca-container{
         
-        height: 480px;
+        height: 420px;
         min-width: 240px;
         /* max-width: 410px; */
     }
     .kaca-img{
 
-        height: 350px;
+        height: 300px;
         width: 100%;
         object-fit: cover;
         background-color: #1e1e1e;
@@ -156,8 +194,8 @@
     }
     .dot-decoration-img{
 
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
     }
 
     @media only screen and (max-width: 1170px){
@@ -166,11 +204,10 @@
 
             margin-inline: 50px;
         }
-        .nav-link{
+        .tab-kaca{
 
             font-size: 1.25rem;
         }
-
         .deskripsi-placeholder{
 
             font-size: 1rem;
@@ -190,15 +227,53 @@
         }
     }
 
-    @media only screen and (max-width: 576px){
+    @media only screen and (max-width: 780px){
 
         .content-container{
 
             margin-inline: 25px;
         }
-        .nav-link{
+        .nav{
 
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+        .tab-kaca{
+
+            display: none;
             font-size: 1rem;
+        }
+        .mobile-nav{
+
+            display:block;
+            width: 100%;
+        }
+        .mobile-nav-btn{
+
+            width: 100%;
+            color: #FFFFFF;
+            border-radius: 2px;
+            border: none;    
+            font-weight: 700;    
+        }
+        .mobile-nav-dropdown{
+
+            text-transform: uppercase;
+            text-align: center;
+            width: 100%;
+            border-radius: 2px;
+        }
+        .mobile-menu-dropdown:focus{
+
+            background-color: #CAB172;
+        }
+        .mobile-menu-dropdown.active{
+
+            background-color: #CAB172;
+        }
+        .mobile-menu-dropdown:active{
+
+            background-color: #CAB172;
         }
         .heading-container{
 
@@ -218,7 +293,14 @@
             text-decoration: none;
             color: #FFFFFF;
             max-width: 282px;
-            border-radius: 2px;
+            border-radius: 2px;     
+        }
+    }
+    @media only screen and (max-width: 330px){
+
+        .info-icon{
+
+            display: none;
         }
     }
 </style>

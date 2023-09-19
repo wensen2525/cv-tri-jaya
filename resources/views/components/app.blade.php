@@ -37,10 +37,10 @@
                             <div class="offcanvas-body navmenu-container">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
                                     <li class="nav-item">
-                                        <a class="nav-link" aria-current="page" href="#">HOME</a>
+                                        <a class="navmenu nav-link" aria-current="page" href="{{ url('/')}}">HOME</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/product') }}">PRODUCT</a>
+                                        <a class="navmenu nav-link" href="{{ url('/product') }}">PRODUCT</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ url('/project') }}">PROJECT</a>
@@ -128,25 +128,6 @@
                             </li>
                         @endguest
                     </ul>
-
-                    <div class="navmenu-container row gap-4 justify-content-end">
-
-                        <a class="navmenu col text-decoration-none" href="{{ url('/') }}">HOME</a>
-                        <a class="navmenu col text-decoration-none" href="{{ url('/product') }}">PRODUCT</a>
-                        <a class="navmenu col text-decoration-none" href="">PROJECTS</a>
-                    </div>
-
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Dropdown
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><button class="dropdown-item" type="button">Action</button></li>
-                            <li><button class="dropdown-item" type="button">Another action</button></li>
-                            <li><button class="dropdown-item" type="button">Something else here</button></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -154,15 +135,56 @@
         <main>
             {{ $slot }}
         </main>
+
+        <div class="footer-container card-footer mt-5">
+
+            <div class="row">
+                <div class="col-xl-4 col-md-4">
+                    <div class="row">
+                        <a href="" class="footer-company-name">CV TRI JAYA</a>
+                        <p class="footer-address">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan<br>Banten 15418</p>
+                        <p class="footer-copyright"><i class="bi bi-c-circle"></i>&nbsp CV Tri Jaya - Indonesia</p>
+                    </div>
+
+                </div>
+                <div class="contact-menu-container col-md-4 col-lg-3">
+                    <p class="footer-menu-header mb-4">CONTACT US</p>
+                    <a href="" class="footer-menu-btn px-4 py-2 me-2 d-inline-block"><i class="bi bi-envelope-at pe-2 text-warning"></i> Gmail</a>
+                    <a href="" class="footer-menu-btn px-4 py-2 me-2 mt-2 d-inline-block "><i class="bi bi-whatsapp pe-2 text-success"></i> Whatsapp</a>
+                </div>
+                <div class="explore-menu-container col-md-2">
+                    <p class="footer-menu-header">EXPLORE</p>
+                    <div class="row gap-1">
+                        <a href="" class="footer-menu">Home</a>
+                        <a href="" class="footer-menu">Product</a>
+                        <a href="" class="footer-menu">Project</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <div class="jadwal-menu-container row">
+                        <p class="footer-menu-header p-0">JADWAL BUKA</p>
+                        <div class="col p-0">
+                            <div class="footer-menu">Senin - Sabtu</div>
+                            <div class="footer-menu">Minggu</div>
+                        </div>
+                        <div class="col p-0">
+                            <div class="footer-menu">08.15 - 16.30 WIB</div>
+                            <div class="footer-menu">TUTUP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
 </html>
 
 <style>
+
     .nav-container {
 
-        height: 115px;
+        height: 90px;
     }
 
     .left-nav-container {
@@ -188,25 +210,65 @@
         font-size: 1.25rem;
         font-weight: 500;
     }
-
-    .navmenu {
-
-        color: #1e1e1e
-    }
-
-    .navmenu:hover {
-
-        font-weight: 700
-    }
-
     .navmenu-container {
 
         margin-inline-end: 70px;
     }
+    .navmenu{
 
+        color: #1e1e1e;
+    }
+    .navmenu:hover{
+
+        color: #CAB172;
+        font-weight: 700;
+    }
     .burger-icon {
 
         visibility: hidden;
+    }
+    .footer-container{
+
+        background-color: #1e1e1e;
+        padding: 50px 100px 50px 100px;
+    }
+    .footer-company-name{
+
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-address{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-copyright{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-menu-header{
+
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    .footer-menu-btn{
+
+        background-color: #1e1e1e;
+        border: 1px solid #FFFFFF;
+        border-radius: 2px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-menu{
+
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: #FFFFFF;
     }
 
     @media only screen and (max-width: 1170px) {
@@ -224,6 +286,10 @@
         .navmenu-container {
 
             margin-inline-end: 30px;
+        }
+        .footer-container{
+
+            padding: 50px 50px 50px 50px;
         }
     }
 
@@ -269,10 +335,24 @@
 
             color: #5181C1;
         }
-        .dropdown-item {
+        .explore-menu-container{
 
-            display: block;
-            width: ;
+            display: none;
         }
+        .jadwal-menu-container{
+
+            display: none;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: #d2d2d2;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #5181C1;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #4079c3;
     }
 </style>
