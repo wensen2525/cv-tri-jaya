@@ -1,4 +1,8 @@
-<x-app>
+@php
+    $pageTitle = 'PRODUK';
+@endphp
+
+<x-app :pageTitle="$pageTitle">
     <section>
         {{-- Sub-NavBar untuk jenis kaca --}}
         <div class="container-fluid">
@@ -22,12 +26,12 @@
                             </li>
                         @endforeach
                         <div class="mobile-nav dropdown center">
-                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow-sm p-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Pilih Jenis Kaca
+                            <button class="mobile-nav-btn btn btn-secondary dropdown-toggle shadow p-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Pilih Jenis Kaca &nbsp <i class="bi bi-chevron-down "></i>
                             </button>
-                            <ul class="mobile-nav-dropdown dropdown-menu">
+                            <ul class="mobile-nav-dropdown dropdown-menu shadow">
                                 @foreach ($jenises as $jenis)
-                                    <li><a class="mobile-menu-dropdown dropdown-item" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
+                                    <li><a class="mobile-menu-dropdown dropdown-item p-2" id="list-{{ $jenis->nama }}-list" data-bs-toggle="list"
                                     href="#list-{{ $jenis->nama }}" role="tab"
                                     aria-controls="list-{{ $jenis->nama }}">
                                     @if ($jenis->nama == "Cermin")
@@ -53,7 +57,7 @@
                         <div>
                             {{-- Intro Jenis Kaca --}}
                             <div class="heading-container row gap-2">
-                                <div class="jenis-container col py-2 px-3">
+                                <div class="jenis-container col py-2 px-2">
                                     @if ($jenis->nama == "Cermin")
                                         {{ $jenis->nama }}
                                     @else
@@ -118,7 +122,8 @@
 <style>
     .content-container{
 
-        margin-inline: 100px;
+        margin-inline: 7vw; 
+        margin-bottom: 15vh;
     }
     .nav{
 
@@ -171,7 +176,9 @@
     .deskripsi-placeholder{
 
         font-size: 1.125rem;
-        font-weight: 400
+        font-weight: 400;
+        text-align: justify;
+        text-justify: inter-word;
     }
     .kaca-container{
         
@@ -245,23 +252,36 @@
         }
         .mobile-nav{
 
-            display:block;
+            display: block;
             width: 100%;
+
         }
         .mobile-nav-btn{
 
             width: 100%;
-            color: #FFFFFF;
+            height: 50px;
+            color: #6c6c6c;
             border-radius: 2px;
-            border: none;    
-            font-weight: 700;    
+            border: none;
+            font-weight: 700;  
+            background-color: #FFFFFF;  
+        }
+        .mobile-nav-btn:hover{
+
+            color: #ababab;
+            background-color: #e0e0e0;
+        }
+        .mobile-nav-btn::after{
+
+            content: none;
         }
         .mobile-nav-dropdown{
 
+            font-size: 1rem;
             text-transform: uppercase;
             text-align: center;
             width: 100%;
-            border-radius: 2px;
+            border-radius: 0px 0px 10px 10px;
         }
         .mobile-menu-dropdown:focus{
 
@@ -277,7 +297,7 @@
         }
         .heading-container{
 
-            font-size: 1rem;
+            font-size: 1.25rem;
         }
         .jenis-container{
 
@@ -296,11 +316,30 @@
             border-radius: 2px;     
         }
     }
-    @media only screen and (max-width: 330px){
+    @media only screen and (max-width: 360px){
 
         .info-icon{
 
             display: none;
+        }
+        .heading-container{
+
+            font-size: 1rem;
+        }   
+        .deskripsi-placeholder{
+    
+            font-size: 0.875rem;
+        }
+    }
+    @media only screen and (max-width: 280px){
+
+        .kaca-container{
+
+            height: 350px;
+        }
+        .kaca-img{
+
+            height: 250px;
         }
     }
 </style>

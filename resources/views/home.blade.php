@@ -1,4 +1,8 @@
-<x-app>
+@php
+    $pageTitle = 'BERANDA';
+@endphp
+
+<x-app :pageTitle="$pageTitle">
       <div class="container">
             <div class="row">
                   <div class="col">

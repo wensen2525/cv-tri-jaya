@@ -28,6 +28,7 @@
                                 <p class="nama-company-placeholder col m-0 ms-3">CV TRI JAYA</p>
                             </a>
                         </div>
+                        <p class="page-name-placeholder position-absolute top-50 start-50 translate-middle ">{{ $pageTitle }}</p>
                         <i class="burger-icon bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"></i>
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
                             <div class="offcanvas-header">
@@ -37,13 +38,13 @@
                             <div class="offcanvas-body navmenu-container">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
                                     <li class="nav-item">
-                                        <a class="navmenu nav-link" aria-current="page" href="{{ url('/')}}">HOME</a>
+                                        <a class="navmenu nav-link ps-2" aria-current="page" href="{{ url('/')}}">BERANDA</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="navmenu nav-link" href="{{ url('/product') }}">PRODUCT</a>
+                                        <a class="navmenu nav-link ps-2" href="{{ url('/product') }}">PRODUK</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/project') }}">PROJECT</a>
+                                        <a class="navmenu nav-link ps-2" href="{{ url('/project') }}">PROYEK</a>
                                     </li>
                             </div>
                         </div>
@@ -136,7 +137,7 @@
             {{ $slot }}
         </main>
 
-        <div class="footer-container card-footer mt-5">
+        <div class="footer-container card-footer">
 
             <div class="row">
                 <div class="col-xl-4 col-md-4">
@@ -182,6 +183,10 @@
 
 <style>
 
+    .page-name-placeholder{
+
+        display: none;
+    }
     .nav-container {
 
         height: 90px;
@@ -209,9 +214,6 @@
 
         font-size: 1.25rem;
         font-weight: 500;
-    }
-    .navmenu-container {
-
         margin-inline-end: 70px;
     }
     .navmenu{
@@ -293,8 +295,15 @@
         }
     }
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 768px) {
 
+        .page-name-placeholder{
+
+            display: inline;
+            color: #1e1e1e;
+            font-size: 1rem;
+            font-weight: 400;
+        }
         .nav-container {
 
             height: 60px;
@@ -312,7 +321,6 @@
             height: 28px;
             margin-inline-start: 15px;
         }
-
         .nama-company-placeholder {
 
             display: none;
@@ -346,7 +354,9 @@
     }
     ::-webkit-scrollbar {
         width: 10px;
-        background-color: #d2d2d2;
+        height: 10px;
+        background-color: #eaeaea;
+        border-radius: 50px;
     }
     ::-webkit-scrollbar-thumb {
         background-color: #5181C1;
