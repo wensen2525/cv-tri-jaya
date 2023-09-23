@@ -295,7 +295,7 @@
         }
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 767.5px) {
 
         .page-name-placeholder{
 

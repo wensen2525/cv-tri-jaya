@@ -1,4 +1,4 @@
-<x-app>
+<x-home>
       <div class="container">
             <div class="row">
                   <div class="col">
@@ -67,7 +67,7 @@
                   </div>
             </div>
       </div>
-</x-app>
+</x-home>
 
 <script>
       document.getElementById('delete-btn').addEventListener('click', function(e) {

@@ -11,47 +11,21 @@
                   <img src="{{ url('./storage/gambar/bg-blue.svg') }}" alt="" 
                   class="background-img position-absolute">
 
-                  {{-- <div class="content-container container col halo">
-                        @foreach($proyeks as $proyek)
-                        <div class="container">
-                              <div class="row">
-                                    <div class="col-12">
-                                          <div id="product-slider" class="carousel slide" data-bs-ride="carousel">
-                                                <div class="carousel-inner">
-                                                      <div class="carousel-item active">       
-                                                            <div class="d-flex gap-2" style="overflow:auto">
-                                                                  <div class="col-4">
-                                                                        <div class="card col">
-                                                                              <div class="row g-0">
-                                                                                    <div class="col-4">
-                                                                                          <img src="{{ url('/storage/gambar/Halo.jpeg') }}" class="rounded float m-3" alt="Image" style="width: 8vw; height: auto; object-fit:cover;">
-                                                                                    </div>
-                                                                                    <div class="col-8">
-                                                                                          <div class="card-body">
-                                                                                                <h5 class="fw-semibold">{{ $proyek->name }} Halo</h5>
-                                                                                          </div>
-                                                                                    </div>
-                                                                              </div>
-                                                                        </div>
-                                                                  </div>
-                                                            </div>
-
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          
-                                    </div>
-                              </div>
-                        </div>
-                        @endforeach
-                  </div> --}}
-
                   <div class="carousel-container">
                         <div class="row flex-nowrap overflow-x-auto gap-3">
                               @foreach ($proyeks as $proyek)
                               <div class="col p-0"> <!-- Adjust the column size as needed -->
                                     <div class="project-container position-relative">
-                                          <img src="{{ url('./storage/gambar/Halo.jpeg') }}" alt="" class="project-img object-fit-cover ">
+                                          {{-- <img src="{{ url('./storage/gambar/Halo.jpeg') }}" alt="" class="project-img object-fit-cover "> --}}
+                                          @if(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.png')))
+                                                <img src="{{ asset('./storage/kaca/' . $proyek->nama . '.png') }}" alt="Gambar Proyek" class="project-img">
+                                          @elseif(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.jpeg')))
+                                                <img src="{{ asset('./storage/kaca/' . $project->nama . '.jpeg') }}" alt="Gambar Proyek" class="project-img">
+                                          @elseif(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.jpg')))
+                                                <img src="{{ asset('./storage/kaca/' . $proyek->nama . '.jpg') }}" alt="Gambar Proyek" class="project-img">
+                                          @else
+                                                <div class="project-img"></div>
+                                          @endif
                                           <div class="project-card-container position-absolute start-50 translate-middle p-4 shadow">
                                                 <div class="row">
                                                       <div class="col-10">
@@ -105,6 +79,8 @@
             width: 400px;
             height: 450px;
             border-radius: 5px;
+            object-fit: cover;
+            background-color: #1e1e1e;
       }
       .project-card-container{
             
