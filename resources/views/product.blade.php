@@ -57,7 +57,7 @@
                         <div>
                             {{-- Intro Jenis Kaca --}}
                             <div class="heading-container row gap-2">
-                                <div class="jenis-container col py-2 px-2">
+                                <div class="jenis-container col py-2 ps-3">
                                     @if ($jenis->nama == "Cermin")
                                         {{ $jenis->nama }}
                                     @else
