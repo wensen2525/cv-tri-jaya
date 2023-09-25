@@ -1,6 +1,6 @@
 <x-app>
-      <div class="container">
-            <div class="row">
+      <div class="container p-5">
+            <div class="row pt-3">
                   <div class="col">
                         <h1 class="text-center">DASHBOARD ADMIN</h1>
                         <hr>

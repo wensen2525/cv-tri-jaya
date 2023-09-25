@@ -23,7 +23,7 @@
     </div>
     <div id="app" style="display: none">
     <x-alert></x-alert>
-      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'CV TRI JAYA') }}
@@ -37,14 +37,14 @@
                 @auth
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
                 @if(Auth::user()->role == 'ADMIN')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('jenis.index') }}">JENIS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('kaca.index') }}">KACA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('ukuran.index') }}">UKURAN</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('jenis.index') }}">JENIS</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('kaca.index') }}">KACA</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('ukuran.index') }}">UKURAN</a></li>
                 @elseif (Auth::user()->role == 'USER')
-                    <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">DASHBOARD</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">PESAN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">KACA</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">PESAN</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">KACA</a></li>
                 @endif
                 @guest
                 <a class="dropdown-item" href="/">
@@ -93,10 +93,17 @@
             </div>
         </div>
       </nav>
-
-      <main>
+      @auth
+        <main class="d-flex">
+            <x-sidebar_admin />
             {{ $slot }}
-      </main>
+        </main>
+      @endauth
+      @guest
+        <main>
+                {{ $slot }}
+        </main>
+      @endguest
     </div>
 </body>
 </html>
