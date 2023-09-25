@@ -62,39 +62,37 @@
                               </div>
                         </section>
                         <section>
-                              <div class="row" style="padding-top: 10rem">
-                                  <div class="col-12 row">
-                                      <div class="col-lg-7 col-12">
+                              <div class="container" style="padding-top: 10rem">
+                                  <div class="row">
+                                      <div class="col-lg-7 col-12 p-0">
                                           <p class="fw-semibold" style="font-size: 1.5rem">Kunjungi Toko Kami</p>
-                                          <div class="" style="background-color: #CAB172">
+                                          <div class="rounded-4" style="background-color: #CAB172">
                                               <p class="text-white text-center fw-semibold pt-4 pb-2" style="font-size: 1.2rem">Tersedia 2 Lokasi di Indonesia</p>
-                                              <div class="row px-4">
-                                                  <div class="col-md-6 mb-3">
-                                                      <div class="card">
-                                                          <div class="card-body" style="background-color: #CAB172">
+                                              <div class="row col-12">
+                                                      <div class="col-lg-6 mb-3 card" style="background: transparent">
+                                                          <div class="card-body d-lg-block d-flex flex-column align-items-center" >
                                                               <img src="{{ url('./storage/assets/lokasi1.png')}}" alt="" class="img-fluid">
-                                                              <p class="mt-3">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan, Banten 15418</p>
+                                                              <p class="mt-3 d-lg-block d-none" style="min-height: 80px">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan, Banten 15418</p>
+                                                              <p class="mt-3 d-block d-lg-none">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan, Banten 15418</p>
                                                               <a href="{{ url('https://www.google.com/maps/place/CV+TRI+JAYA/@-6.3566538,106.7491487,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69ef1143dce2bb:0x778ff404f4a9f656!8m2!3d-6.3566592!4d106.7540196!16s%2Fg%2F11bcdbgnft?entry=ttu') }}" class="text-white btn btn-red px-4" target="_blank">Lihat Rute ></a>
                                                           </div>
                                                       </div>
-                                                  </div>
-                                                  <div class="col-md-6 mb-3">
-                                                      <div class="card">
-                                                          <div class="card-body" style="background-color: #CAB172">
+                                                      <div class=" col-lg-6 mb-3 card" style="background: transparent">
+                                                          <div class="card-body d-lg-block d-flex flex-column align-items-center" >
                                                               <img src="{{ url('./storage/assets/lokasi2.png')}}" alt="" class="img-fluid">
-                                                              <p class="mt-3">Ruko Sawangan Megah, No. 9, Jl. Raya Parung - Ciputat, Kedaung, Kec. Sawangan, Kota Depok, Jawa Barat 16517</p>
+                                                              <p class="mt-3 d-lg-block d-none" style="min-height: 80px">Ruko Sawangan Megah, No. 9, Jl. Raya Parung - Ciputat, Kedaung, Kec. Sawangan, Kota Depok, Jawa Barat 16517</p>
+                                                              <p class="mt-3 d-block d-lg-none">Ruko Sawangan Megah, No. 9, Jl. Raya Parung - Ciputat, Kedaung, Kec. Sawangan, Kota Depok, Jawa Barat 16517</p>
                                                               <a href="{{ url('https://www.google.com/maps/place/Tri+Jaya+Kaca+%26+Aluminium/@-6.3738788,106.7441055,18z/data=!4m14!1m7!3m6!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!2sTri+Jaya+Kaca+%26+Aluminium!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd!3m5!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd?entry=ttu') }}" class="text-white btn btn-red px-4" target="_blank">Lihat Rute ></a>
                                                           </div>
                                                       </div>
-                                                  </div>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col-lg-5 col-12 ps-lg-4 p-0" >
                                           <p class="fw-semibold" style="font-size: 1.5rem">Jam Operasional</p>
-                                          <div class="container py-1" style="background-color: #1E1E1E">
-                                              <div class="container my-3 text-center" style="background-color: #000000; width: 25rem; border-radius: 10px">
-                                                <p class="fw-semibold text-white" style="font-size: 1.2rem">Senin - Sabtu</p>
+                                          <div class="rounded-4 p-4" style="background-color: #1E1E1E">
+                                              <div class="text-center" style="background-color: #000000;">
+                                                <p class="fw-semibold text-white m-0" style="font-size: 1.2rem">Senin - Sabtu</p>
                                               </div>
                                           </div>
                                       </div>
