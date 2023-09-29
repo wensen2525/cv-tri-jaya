@@ -8,6 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/x-icon" href="{{ url('./storage/gambar/logo-color.ico') }}">
     <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
