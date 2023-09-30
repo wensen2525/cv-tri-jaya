@@ -169,28 +169,10 @@
                                     <div class="row col-12">
                                         <div class="row col-md-12 container p-4 rounded-2 mx-auto" style="background-color: #5181C1">
                                             <p class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI SEDIAKAN</p>
-                                            <div class="col-md-6 col-12">
+                                            <div class="col-12 row">
                                                 @foreach ( $jasas as $jasa )
-                                                @if ($jasa['index'] <= 3)
-                                                <div class="accordion accordion-flush" id="accordionFlushExample" >
-                                                    <div class="accordion-item mb-2 rounded-2">
-                                                      <h2 class="accordion-header">
-                                                        <button class="accordion-button collapsed rounded-2 fw-semibold" style="font-size: 1.2rem" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $jasa['index'] }}" aria-expanded="false" aria-controls="collapse{{ $jasa['index'] }}">
-                                                          {{ $jasa['title'] }}
-                                                        </button>
-                                                      </h2>
-                                                      <div id="collapse{{ $jasa['index'] }}" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                                                        <div class="accordion-body">{!! nl2br($jasa['body']) !!}</div>
-                                                      </div>
-                                                    </div>
-                                                </div>
-                                                @endif
-                                                @endforeach
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                @foreach ( $jasas as $jasa )
-                                                @if ($jasa['index'] > 3)
-                                                <div class="accordion accordion-flush" id="accordionFlushExample" >
+                                                @if ($jasa['index'] <= 6)
+                                                <div class="accordion accordion-flush col-12 col-md-6" id="accordionFlushExample" >
                                                     <div class="accordion-item mb-2 rounded-2">
                                                       <h2 class="accordion-header">
                                                         <button class="accordion-button collapsed rounded-2 fw-semibold" style="font-size: 1.2rem" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ $jasa['index'] }}" aria-expanded="false" aria-controls="collapse{{ $jasa['index'] }}">
@@ -210,6 +192,47 @@
                                 </div>
                             </div>
                         </section>
+                        {{-- kontak  --}}
+                        <section>
+                            <div class="rounded-2 container p-5" style="background-color: #1E1E1E;">
+                                <div class="justify-content-center text-white row col-md-12">
+                                    <div class="col-md-2 me-5">
+                                        <p class="fs-3 fw-semibold">HUBUNGI KAMI</p>
+                                        <div style="border-bottom: 2px solid #CAB172;"></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <a href="{{ url('https://wa.me/6283875418202') }}" target="_blank" class="mb-3 text-decoration-none text-white px-2 d-flex justify-content-between position-relative py-2" style="background-color: #595959">
+                                            <div class="d-flex align-items-center fw-semibold"><i class="bi bi-whatsapp px-3 py-2 fs-4 text-success me-1"></i>Whatsapp</div>
+                                            <img width="12" src="{{ url('./storage/gambar/3dot.png') }}" alt="3dot" class="m-3 position-absolute bottom-0 end-0 img-fluid">
+                                        </a>
+                                        <a href=" {{ url('https://mail.google.com/mail/?view=cm&source=mailto&to=cvtrijayakaca@gmail.com') }}" target="_blank" class="text-decoration-none text-white px-2 d-flex justify-content-between position-relative py-2" style="background-color: #595959">
+                                            <div class="d-flex align-items-center fw-semibold"><i class="bi bi-envelope-at px-3 py-2 fs-4 text-warning me-1"></i>Gmail</div>
+                                            <img width="12" src="{{ url('./storage/gambar/3dot.png') }}" alt="3dot" class="m-3 position-absolute bottom-0 end-0 img-fluid">
+                                        </a>
+                                        <p class="text-end mt-2" style="color: #CAB172">* Klik kontak diatas untuk memulai percakapan</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="py-3 px-2 rounded-2 text-center text-white" style="background-color: black">
+                                            <p class="fw-semibold">Contact Person</p>
+                                            <p>021-7471-7392</p>
+                                            <p>021-7471-7393</p>
+                                            <p>021-749-9056</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        {{-- visi  --}}
+                        <div class="ad-container">
+                            <div class="text-center">
+                                  <p class="ad-text-header">Mengapa Memilih Kami?</p>
+                                  <p class="ad-text-content">“Visi kami adalah menjadi penyuplai kaca dan cermin yang memiliki kompetensi tinggi di Jakarta dan sekitarnya.”</p>
+                                  <div class="mt-5">
+
+                                        <a href="{{ url('./') }}" class="ad-contact-btn p-3">Hubungi Kami <i class="bi bi-chevron-right"></i></a>
+                                  </div>
+                            </div>
+                      </div>
                   </div>
             </div>
       </div>
@@ -258,6 +281,32 @@
       }
       .accordion-button::after {
             display: none;
+      }
+      .ad-container{
+            margin-inline: 7vw;
+            margin-top: 15vw;
+            margin-bottom: 20vw;
+      }
+      .ad-text-header{
+
+            font-size: 1.25rem;
+            color: #1e1e1e;
+            font-weight: 700;
+      }
+      .ad-text-content{
+
+            font-size: 1rem;
+            color: #1e1e1e;
+            font-weight: 500;
+      }
+      .ad-contact-btn{
+
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            background-color: #E94D36;
+            border-radius: 5px;
+            text-decoration: none;
       }
       @media (max-width: 991.98px) {
             .custom-mt {
