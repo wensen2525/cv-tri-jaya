@@ -64,6 +64,7 @@
 
             width: 100%;
             margin-top: 180px;
+            z-index: -1;
       }
       .carousel-container{
             

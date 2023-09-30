@@ -61,23 +61,15 @@
                                     @if ($jenis->nama == "Cermin")
                                         {{ $jenis->nama }}
                                     @else
-                                        Kaca {{ $jenis->nama }}
+                                        Kaca {{ $jenis->nama }} 
+                                        {{-- <a href="https://www.freepik.com/free-vector/dotted-black-background_43313905.htm#query=dot%20texture&position=0&from_view=keyword&track=ais">Image by juicy_fish</a> on Freepik --}}
                                     @endif 
                                 </div>
                                 <a class="ukuran-btn col py-2 text-center" href="">
                                     <i class="info-icon bi bi-info-circle me-3"></i>Cek Ukuran</a>
                             </div>
 
-                            <p class="deskripsi-placeholder my-4">Lorem ipsum dolor sit amet,
-                                consectetur adipiscing elit. Vivamus vel arcu a leo venenatis auctor. Nullam
-                                vel volutpat nisi. Sed a nisi nec odio varius cursus in at quam. Sed tristique magna
-                                id
-                                justo convallis,
-                                at posuere velit egestas. Maecenas id est tristique, ullamcorper justo in, varius
-                                velit. Sed
-                                id diam vel
-                                lectus sodales feugiat nec vel justo. Integer congue erat eget purus placerat
-                                bibendum.</p>
+                            <p class="deskripsi-placeholder my-4">{{ $jenis->deskripsi }}</p>
 
                             {{-- List Kaca --}}
                             <div class="mt-3">
