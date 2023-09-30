@@ -28,7 +28,7 @@ class JenisSeeder extends Seeder
             ],
             [
                 'nama' => 'Motif',
-                'deskripsi' => 'Umum digunakan untuk rak atau etalase dapur. Memiliki banyak variasi motif. Menjadikan ruang dapur anda lebih hidup.',
+                'deskripsi' => 'Kaca ini umum digunakan untuk rak atau etalase dapur. Memiliki banyak variasi motif. Menjadikan ruang dapur anda lebih hidup.',
             ],
             [
                 'nama' => 'Cermin',

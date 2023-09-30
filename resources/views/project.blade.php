@@ -17,12 +17,12 @@
                               <div class="col p-0"> <!-- Adjust the column size as needed -->
                                     <div class="project-container position-relative">
                                           {{-- <img src="{{ url('./storage/gambar/Halo.jpeg') }}" alt="" class="project-img object-fit-cover "> --}}
-                                          @if(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.png')))
-                                                <img src="{{ asset('./storage/kaca/' . $proyek->nama . '.png') }}" alt="Gambar Proyek" class="project-img">
-                                          @elseif(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.jpeg')))
-                                                <img src="{{ asset('./storage/kaca/' . $project->nama . '.jpeg') }}" alt="Gambar Proyek" class="project-img">
-                                          @elseif(file_exists(public_path('./storage/kaca/' . $proyek->nama . '.jpg')))
-                                                <img src="{{ asset('./storage/kaca/' . $proyek->nama . '.jpg') }}" alt="Gambar Proyek" class="project-img">
+                                          @if(file_exists(public_path('./storage/proyek/gedung/' . $proyek->nama . '_gedung.png')))
+                                                <img src="{{ asset('./storage/proyek/gedung/' . $proyek->nama . '_gedung.png') }}" alt="Gambar Proyek" class="project-img">
+                                          @elseif(file_exists(public_path('./storage/proyek/gedung/' . $proyek->nama . '_gedung.jpeg')))
+                                                <img src="{{ asset('./storage/proyek/gedung/' . $project->nama . '_gedung.jpeg') }}" alt="Gambar Proyek" class="project-img">
+                                          @elseif(file_exists(public_path('./storage/proyek/gedung/' . $proyek->nama . '_gedung.jpg')))
+                                                <img src="{{ asset('./storage/proyek/gedung/' . $proyek->nama . '_gedung.jpg') }}" alt="Gambar Proyek" class="project-img">
                                           @else
                                                 <div class="project-img"></div>
                                           @endif

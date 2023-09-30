@@ -49,7 +49,8 @@ class HomeController extends Controller
     }
 
     public function project(){
-        $proyeks = Proyek::all();
+        //pass proyek and sort Descent
+        $proyeks = Proyek::all()->sortByDesc('first_year');
         return view('project', compact('proyeks'));
     }
 }
