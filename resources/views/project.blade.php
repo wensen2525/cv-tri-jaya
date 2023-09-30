@@ -1,5 +1,5 @@
 @php
-    $pageTitle = 'PROYEK';
+    $pageTitle = 'Proyek';
 @endphp
 
 <x-app :pageTitle="$pageTitle">

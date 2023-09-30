@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" type="image/x-icon" href="{{ url('./storage/gambar/logo-color.ico') }}">
-    <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
+    <title>{{ config('app.name', 'CV TRI JAYA') }} | {{ ucfirst($pageTitle) }}</title>
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
@@ -300,6 +300,7 @@
 
         .page-name-placeholder{
 
+            text-transform: uppercase;
             display: inline;
             color: #1e1e1e;
             font-size: 1rem;
