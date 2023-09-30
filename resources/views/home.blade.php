@@ -207,8 +207,7 @@
                             <div class="row col-12">
                                 <div class="row col-md-12 container p-4 rounded-2 mx-auto"
                                     style="background-color: #5181C1">
-                                    <p class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI
-                                        SEDIAKAN</p>
+                                    <p class="text-white fw-semibold mb-4" style="font-size: 1.5rem" id="jump-section-hubungi-kami">JASA YANG KAMI SEDIAKAN</p>
                                     <div class="col-12 row">
                                         @foreach ($jasas as $jasa)
                                             @if ($jasa['index'] <= 6)

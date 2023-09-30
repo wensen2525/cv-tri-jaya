@@ -151,15 +151,15 @@
                 </div>
                 <div class="contact-menu-container col-md-4 col-lg-3">
                     <p class="footer-menu-header mb-4">CONTACT US</p>
-                    <a href="" class="footer-menu-btn px-4 py-2 me-2 d-inline-block"><i class="bi bi-envelope-at pe-2 text-warning"></i> Gmail</a>
-                    <a href="" class="footer-menu-btn px-4 py-2 me-2 mt-2 d-inline-block "><i class="bi bi-whatsapp pe-2 text-success"></i> Whatsapp</a>
+                    <a href="{{ url('https://mail.google.com/mail/?view=cm&source=mailto&to=cvtrijayakaca@gmail.com') }}" target="blank" class="footer-menu-btn px-4 py-2 me-2 d-inline-block"><i class="bi bi-envelope-at pe-2 text-warning"></i> Gmail</a>
+                    <a href="{{ url('https://wa.me/6283875418202') }}" target="blank" class="footer-menu-btn px-4 py-2 me-2 mt-2 d-inline-block "><i class="bi bi-whatsapp pe-2 text-success"></i> Whatsapp</a>
                 </div>
                 <div class="explore-menu-container col-md-2">
                     <p class="footer-menu-header">EXPLORE</p>
                     <div class="row gap-1">
-                        <a href="" class="footer-menu">Home</a>
-                        <a href="" class="footer-menu">Product</a>
-                        <a href="" class="footer-menu">Project</a>
+                        <a href="" class="footer-menu">Beranda</a>
+                        <a href="" class="footer-menu">Produk</a>
+                        <a href="" class="footer-menu">Proyek</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3">
