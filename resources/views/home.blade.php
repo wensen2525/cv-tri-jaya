@@ -41,14 +41,14 @@
                                 <img src="{{ url('./storage/assets/'. $galeri['img'].'.png') }}" class="card-img-top"
                                     alt="lokasi">
                                 <p class="mt-3 fw-medium">{{ $galeri['title'] }}</p>
-                                <hr>
+                                <hr id="lokasi">
                             </a>
                         </div>
                         @endforeach
                     </div>
                 </section>
                 {{-- lokasi & Jam Operasional --}}
-                <section id="lokasi">
+                <section>
                     <div class="container" style="margin-top: 9vw;">
                         <div class="row justify-content-center">
                             <div class="col-lg-7 col-12 pe-lg-4 pe-md-0">
@@ -65,7 +65,7 @@
                                                 <p class="mt-3 d-lg-block lokasi-nama" style="min-height: 80px"> {{ $lokasi['nama'] }}
                                                 </p>
                                                     <a href="{{ url($lokasi['link']) }}"
-                                                    class="text-white btn btn-red px-4" target="_blank">Lihat Rute ></a>
+                                                    class="text-white btn btn-red px-4" target="_blank" id="alatproduksi">Lihat Rute ></a>
                                                 </div>
                                         </div>
                                         @endforeach
@@ -108,7 +108,7 @@
                     </div>
                 </section>
                 {{-- alat produksi  --}}
-                <section id="alatproduksi">
+                <section>
                     <div class="container" style="margin-top: 9vw;">
                         <div class="row justify-content-center">
                             <div class="col-md-12">
