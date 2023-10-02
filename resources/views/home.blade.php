@@ -31,88 +31,50 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        {{-- galeri  --}}
-                        <section style="margin-top: 100px;">
+                    {{-- galeri  --}}
+                    <section style="margin-top: 9vw;">
                     <p style="font-size: 1.5rem;" class="text-center fw-semibold">GALERI</p>
                     <div class="row col-12 mt-5 mx-auto" style="font-size: 1.2rem">
+                        @foreach ( $galeris as $galeri )
                         <div class="col-6 col-md-3">
-                            <a style="text-decoration: none;" href="" class="navigator-home">
-                                <img src="{{ url('./storage/assets/home-location.png') }}" class="card-img-top"
+                            <a style="text-decoration: none;" href="{{ url($galeri['link']) }}" class="navigator-home">
+                                <img src="{{ url('./storage/assets/'. $galeri['img'].'.png') }}" class="card-img-top"
                                     alt="lokasi">
-                                <p class="mt-3 fw-medium">LOKASI</p>
+                                <p class="mt-3 fw-medium">{{ $galeri['title'] }}</p>
                                 <hr>
                             </a>
                         </div>
-                        <div class="col-6 col-md-3">
-                            <a style="text-decoration: none;" href="" class="navigator-home">
-                                <img src="{{ url('./storage/assets/home-mesin.png') }}" class="card-img-top"
-                                alt="produksi">
-                                <p class="mt-3 fw-medium">ALAT PRODUKSI</p>
-                                <hr>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <a style="text-decoration: none;" href="" class="navigator-home">
-                                <img src="{{ url('./storage/assets/home-project.png') }}" class="card-img-top"
-                                alt="proyek">
-                                <p class="mt-3 fw-medium">PROYEK</p>
-                                <hr>
-                            </a>
-                        </div>
-                        <div class="col-6 col-md-3">
-                            <a style="text-decoration: none;" href="" class="navigator-home">
-                                <img src="{{ url('./storage/assets/home-produk.png') }}" class="card-img-top"
-                                alt="produk">
-                                <p class="mt-3 fw-medium">PRODUK</p>
-                                <hr>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </section>
                 {{-- lokasi & Jam Operasional --}}
-                <section>
-                    <div class="container" style="padding-top: 7rem">
+                <section id="lokasi">
+                    <div class="container" style="margin-top: 9vw;">
                         <div class="row justify-content-center">
-                            <div class="col-lg-7 col-12 pe-4">
+                            <div class="col-lg-7 col-12 pe-lg-4 pe-md-0">
                                 <p class="fw-semibold" style="font-size: 1.5rem">Kunjungi Toko Kami</p>
                                 <div class="rounded-2 row justify-content-center" style="background-color: #CAB172">
                                     <p class="text-white text-center fw-semibold pt-4" style="font-size: 1.2rem">
                                         Tersedia 2 Lokasi di Indonesia</p>
                                     <div class="row col-12 justify-content-center">
+                                        @foreach ($lokasis as $lokasi )
                                         <div class="col-lg-6 mb-3 card p-0" style="background: transparent">
                                             <div class="card-body d-lg-block d-flex flex-column align-items-center">
-                                                <img src="{{ url('./storage/assets/lokasi1.png') }}" alt=""
+                                                <img src="{{ asset('./storage/assets/'. $lokasi['img'].'.png') }}" alt="lokasi"
                                                 class="img-fluid">
-                                                <p class="mt-3 d-lg-block d-none" style="min-height: 80px">Jl. Kemiri
-                                                    No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan, Banten 15418
+                                                <p class="mt-3 d-lg-block lokasi-nama" style="min-height: 80px"> {{ $lokasi['nama'] }}
                                                 </p>
-                                                <p class="mt-3 d-block d-lg-none">Jl. Kemiri No.51 Pondok Cabe Udik,
-                                                    Pamulang, Tangerang Selatan, Banten 15418</p>
-                                                    <a href="{{ url('https://www.google.com/maps/place/CV+TRI+JAYA/@-6.3566538,106.7491487,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69ef1143dce2bb:0x778ff404f4a9f656!8m2!3d-6.3566592!4d106.7540196!16s%2Fg%2F11bcdbgnft?entry=ttu') }}"
+                                                    <a href="{{ url($lokasi['link']) }}"
                                                     class="text-white btn btn-red px-4" target="_blank">Lihat Rute ></a>
                                                 </div>
                                         </div>
-                                        <div class=" col-lg-6 mb-3 card p-0" style="background: transparent">
-                                            <div class="card-body d-lg-block d-flex flex-column align-items-center">
-                                                <img src="{{ url('./storage/assets/lokasi2.png') }}" alt=""
-                                                    class="img-fluid">
-                                                <p class="mt-3 d-lg-block d-none" style="min-height: 80px">Ruko Sawangan
-                                                    Megah, No. 9, Jl. Raya Parung - Ciputat, Kedaung, Kec. Sawangan,
-                                                    Kota Depok, Jawa Barat 16517</p>
-                                                <p class="mt-3 d-block d-lg-none">Ruko Sawangan Megah, No. 9, Jl. Raya
-                                                    Parung - Ciputat, Kedaung, Kec. Sawangan, Kota Depok, Jawa Barat
-                                                    16517</p>
-                                                <a href="{{ url('https://www.google.com/maps/place/Tri+Jaya+Kaca+%26+Aluminium/@-6.3738788,106.7441055,18z/data=!4m14!1m7!3m6!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!2sTri+Jaya+Kaca+%26+Aluminium!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd!3m5!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd?entry=ttu') }}"
-                                                    class="text-white btn btn-red px-4" target="_blank">Lihat Rute ></a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-12 custom-mt">
                                 <p class="fw-semibold" style="font-size: 1.5rem">Jam Operasional</p>
-                                <div class="rounded-2 container row justify-content-center px-4 text-center"
-                                    style="background-color: #1E1E1E">
+                                <div class="rounded-2 row justify-content-center text-center px-4" style="background-color: #1E1E1E">
                                     <div class="container rounded-2 py-3 my-4" style="background-color: black">
                                         <p class="text-white" style="font-size: 1.2rem">Senin - Sabtu</p>
                                         <p class="fw-semibold mb-0" style="font-size: 1.2rem; color: #CAB172"><i
@@ -124,30 +86,30 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="rounded-2 container row justify-content-center px-4 text-center mt-3"
+                                <div class="rounded-2 row justify-content-center px-4 text-center mt-3"
                                     style="background-color: #1E1E1E">
                                     <div class="row py-4">
                                         <div class="col">
-                                            <p class="fw-semibold text-white mb-0" style="font-size: 1.2rem">BUKA</p>
+                                            <p class="fw-semibold mb-0" style="font-size: 1.2rem" id="buka">BUKA</p>
                                         </div>
                                         <div class="col-auto">
                                             <div class="vl mb-0"></div>
                                         </div>
                                         <div class="col">
-                                            <p class="fw-semibold text-white mb-0" style="font-size: 1.2rem">TUTUP</p>
+                                            <p class="fw-semibold mb-0" style="font-size: 1.2rem" id="tutup">TUTUP</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="py-3">
-                                    <p class=""> <b>*</b> Toko tetap libur pada hari raya tertentu</p>
+                                    <p> <b>*</b> Toko libur pada hari raya tertentu</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
                 {{-- alat produksi  --}}
-                <section>
-                    <div class="container" style="padding-top: 7rem">
+                <section id="alatproduksi">
+                    <div class="container" style="margin-top: 9vw;">
                         <div class="row justify-content-center">
                             <div class="col-md-12">
                                 <div class="row">
@@ -202,12 +164,12 @@
                 </section>
                 {{-- jasa  --}}
                 <section>
-                    <div class="container mb-5" style="padding-top: 7rem">
+                    <div class="container mb-5" style="margin-top: 8vw;">
                         <div class="row justify-content-center align-items-center">
-                            <div class="row col-12">
-                                <div class="row col-md-12 container p-4 rounded-2 mx-auto"
+                            <div class="row col-12 m-0 p-0">
+                                <div class="row col-md-12 m-0 p-4 pe-0 rounded-2 mx-auto"
                                     style="background-color: #5181C1">
-                                    <p class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI
+                                    <p id="kontak" class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI
                                         SEDIAKAN</p>
                                     <div class="col-12 row">
                                         @foreach ($jasas as $jasa)
@@ -244,12 +206,12 @@
                 {{-- kontak  --}}
                 <section>
                     <div class="rounded-2 container p-5" style="background-color: #1E1E1E;">
-                        <div class="justify-content-center text-white row col-md-12">
-                            <div class="col-md-2 me-5">
+                        <div class="justify-content-center text-white row col-md-12 mx-auto">
+                            <div class="col-md-2 hubungi-kami mb-4">
                                 <p class="fs-3 fw-semibold">HUBUNGI KAMI</p>
                                 <div style="border-bottom: 2px solid #CAB172;"></div>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6 hubungi-kami">
                                 <a href="{{ url('https://wa.me/6283875418202') }}" target="_blank"
                                     class="mb-3 text-decoration-none text-white px-2 d-flex justify-content-between position-relative py-2"
                                     style="background-color: #595959">
@@ -270,7 +232,7 @@
                                 <p class="text-end mt-2" style="color: #CAB172">* Klik kontak diatas untuk memulai
                                     percakapan</p>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 hubungi-kami">
                                 <div class="py-3 px-2 rounded-2 text-center text-white"
                                     style="background-color: black">
                                     <p class="fw-semibold">Contact Person</p>
@@ -290,7 +252,7 @@
                             kompetensi tinggi di Jakarta dan sekitarnya.”</p>
                         <div class="mt-5">
 
-                            <a href="{{ url('./') }}" class="ad-contact-btn p-3">Hubungi Kami <i
+                            <a href="{{ url('./#kontak') }}" class="ad-contact-btn p-3">Hubungi Kami <i
                                     class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
@@ -299,11 +261,33 @@
         </div>
     </div>
 </x-app>
+
+<script>
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    const bukaElement = document.getElementById("buka");
+    const tutupElement = document.getElementById("tutup");
+
+    if (
+        currentDay >= 1 && currentDay <= 6 &&
+        (currentHour > 8 || (currentHour === 8 && currentMinute >= 15)) &&
+        currentHour < 16
+    ) {
+        bukaElement.style.color = "#5181C1";
+        tutupElement.style.color = "#FFFFFF";
+    } else {
+        bukaElement.style.color = "#FFFFFF";
+        tutupElement.style.color = "#5181C1";
+    }
+</script>
+
 <style>
     .background-img {
-        /* ni blom ketemu solusinya supaya klo pas resize dia tetep di bawah jam op */
         width: 100%;
-        margin-top: 850px; 
+        margin-top: 1000px;
         z-index: -1;
     }
 
@@ -314,11 +298,10 @@
 
     .banner-img {
         background-image: url('./storage/assets/LandingImage.png');
-        /* background-color: red; */
         background-size: cover;
         background-repeat: no-repeat;
         padding-top: 100px;
-        padding-bottom: 200px;
+        padding-bottom: 250px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
     }
@@ -417,14 +400,17 @@
 
     @media (max-width: 991.98px) {
         .background-img{
-
-            margin-top: 1100px;
+            display: none
         }
         .custom-mt {
             margin-top: 1.5rem !important;
         }
 
         .alat-produksi {
+            width: 100%;
+        }
+
+        .hubungi-kami {
             width: 100%;
         }
     }
@@ -434,9 +420,17 @@
         .alat-penjelasan {
             display: none;
         }
+
+        .background-img{
+            display: none;
+        }
     }
 
     @media (max-width: 380px) {
+        .background-img{
+            display: none;
+        }
+
         .logo-img {
 
             min-width: 65px;
@@ -460,6 +454,9 @@
     }
 
     @media (max-width: 280px) {
+        .background-img{
+            display: none;
+        }
 
         .logo-img {
 
