@@ -169,7 +169,7 @@
                             <div class="row col-12 m-0 p-0">
                                 <div class="row col-md-12 m-0 p-4 pe-0 rounded-2 mx-auto"
                                     style="background-color: #5181C1">
-                                    <p id="kontak" class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI
+                                    <p id="jump-section-hubungi-kami" class="text-white fw-semibold mb-4" style="font-size: 1.5rem">JASA YANG KAMI
                                         SEDIAKAN</p>
                                     <div class="col-12 row">
                                         @foreach ($jasas as $jasa)
@@ -252,7 +252,7 @@
                             kompetensi tinggi di Jakarta dan sekitarnya.”</p>
                         <div class="mt-5">
 
-                            <a href="{{ url('./#kontak') }}" class="ad-contact-btn p-3">Hubungi Kami <i
+                            <a href="{{ url('./#jump-section-hubungi-kami') }}" class="ad-contact-btn p-3">Hubungi Kami <i
                                     class="bi bi-chevron-right"></i></a>
                         </div>
                     </div>
