@@ -5,17 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jenis extends Model
+class Ketebalan extends Model
 {
     use HasFactory;
 
-    protected $table = 'jenises';
+    protected $table = 'ketebalans';
     protected $primaryKey = 'id';
     protected $timestamp = true;
     protected $guarded = [];
 
+    // relationships
+    // example
     public function kacas()
     {
-        return $this->hasMany(Jenis::class);
+        return $this->hasMany(Kaca::class);
     }
 }

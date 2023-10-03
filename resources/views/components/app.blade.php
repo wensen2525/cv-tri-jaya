@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,7 @@
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
+
 <body>
     <div id="loading" style="max-height: 100vh;max-width: 100vw; min-height: 100vh;min-width: 100vw;display: flex; justify-content: center; align-items: center;overflow:hidden">
         <lottie-player
@@ -25,6 +27,33 @@
     <x-alert></x-alert>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
         <div class="container">
+
+            {{-- <div class="left-nav-container">
+                <a class="row navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ url('./storage/gambar/logo-color.png') }}" alt="Logo" class="company-logo col p-0">    
+                    <p class="nama-company-placeholder col m-0 ms-3">CV TRI JAYA</p>
+                </a>
+            </div>
+            <i class="burger-icon bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"></i>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title nama-company-placeholder-offcanvas" id="offcanvasNavbarLabel">CV TRI JAYA</h5>
+                    <button type="button" class="btn-close burger-item-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body navmenu-container">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/product') }}">PRODUCT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">PROJECT</a>
+                        </li>
+                </div>
+            </div> --}}
+
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'CV TRI JAYA') }}
             </a>
@@ -46,23 +75,26 @@
                     <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">PESAN</a></li>
                     <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">KACA</a></li>
                 @endif
+                @endauth
+
                 @guest
                 <a class="dropdown-item" href="/">
                     {{ __('Home') }}
                 </a>
+                <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li>
                 @endguest
                 </ul>
-                @endauth
+                
 
                 <ul class="navbar-nav ms-auto">
                     @guest
-                        @if (Route::has('login'))
+                        @if (!Route::has('login'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
-                        @if (Route::has('register'))
+                        @if (!Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
@@ -82,7 +114,6 @@
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -106,4 +137,123 @@
       @endguest
     </div>
 </body>
+
 </html>
+
+<style>
+    .nav-container {
+
+        height: 115px;
+    }
+
+    .left-nav-container {
+
+        margin-left: 75px;
+    }
+
+    .company-logo {
+
+        width: 45px;
+        height: 45px;
+    }
+
+    .nama-company-placeholder {
+
+        font-size: 2rem;
+        font-family: 'Space Grotesk', sans-serif;
+        color: #1e1e1e;
+    }
+
+    .navmenu-container {
+
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    .navmenu {
+
+        color: #1e1e1e
+    }
+
+    .navmenu:hover {
+
+        font-weight: 700
+    }
+
+    .navmenu-container {
+
+        margin-inline-end: 70px;
+    }
+
+    .burger-icon {
+
+        visibility: hidden;
+    }
+
+    @media only screen and (max-width: 1170px) {
+
+        .left-nav-container {
+
+            margin-left: 50px;
+        }
+
+        .navmenu {
+
+            font-size: 1.125rem;
+        }
+
+        .navmenu-container {
+
+            margin-inline-end: 30px;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+
+        .nav-container {
+
+            height: 60px;
+        }
+
+        .left-nav-container {
+
+            margin-left: 10px;
+        }
+
+        .company-logo {
+
+            display: flex;
+            width: 28px;
+            height: 28px;
+            margin-inline-start: 15px;
+        }
+
+        .nama-company-placeholder {
+
+            display: none;
+        }
+        .nama-company-placeholder-offcanvas{
+
+            font-size: 1.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1e1e1e;     
+        }
+        .burger-icon {
+
+            visibility: visible;
+            font-size: 1.5rem;
+            color: #5181C1;
+            font-weight: 700;
+            margin-inline-end: 15px;
+        }
+        .burger-item-close{
+
+            color: #5181C1;
+        }
+        .dropdown-item {
+
+            display: block;
+            width: ;
+        }
+    }
+</style>

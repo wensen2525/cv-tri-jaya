@@ -36,7 +36,7 @@
                 <!-- Left Side Of Navbar -->
 
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
-                    <li class="nav-item"><a class="nav-link" href="">PRODUCTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/product') }}">PRODUCTS</a></li>
                 </ul>
 
 

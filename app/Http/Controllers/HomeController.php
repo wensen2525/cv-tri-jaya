@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kaca;
+use App\Models\Jenis;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','unAuthorized']);
+        $this->middleware('auth')->except(['index','product','unAuthorized']);
     }
     public function index()
     {
@@ -36,6 +38,10 @@ class HomeController extends Controller
 
     public function product()
     {
-        return view('product');
+        // Retrieve the data related to kaca
+        $kacas = Kaca::all();
+        $jenises = Jenis::all();
+        // Pass the data to the 'product' view
+        return view('product', compact('kacas', 'jenises'));
     }
 }
