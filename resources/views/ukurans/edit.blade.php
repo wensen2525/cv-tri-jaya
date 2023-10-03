@@ -2,17 +2,15 @@
       <div class="container">
             <div class="row">
                   <div class="col-12">
-                        <h1 class="text-center"><a href="{{ route('ukuran.index') }}" class="text-decoration-none text-dark">UKURAN</a></h1>
-                        <p class="text-center">edit ukuran</p>
-                        <hr>
+                        <div style="visibility: hidden" class="py-4">padding</div>
                   </div>
                   <div class="col-10">
                         <form method="POST" action="{{ route('ukuran.update', $ukuran) }}" enctype="multipart/form-data">
                               @csrf
                               @method('UPDATE')
-                              <div class="mb-3">
-                                    <label for="kaca">Kaca</label>
-                                    <select name="kaca_id" required readonly>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="kaca" class="col-2">Kaca</label>
+                                    <select name="kaca_id" required readonly class="form-select">
                                           <option value="{{ $ukuran->kaca_id }}" selected>{{ $ukuran->kaca->nama }}</option>
                                           @foreach($kacas as $kaca)
                                                 <option value="{{ $kaca->id }}">{{ $kaca->nama }}</option>
@@ -22,23 +20,23 @@
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
-                              <div class="mb-3">
-                                    <label for="panjang">Panjang</label>
-                                    <input type="text" name="panjang" value="{{ $ukuran->panjang }}" required>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="panjang" class="col-2">Panjang</label>
+                                    <input type="text" class="form-control" name="panjang" value="{{ $ukuran->panjang }}" required>
                                     @error('panjang')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
-                              <div class="mb-3">
-                                    <label for="lebar">Lebar</label>
-                                    <input type="text" name="lebar" value="{{ $ukuran->lebar }}" required>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="lebar" class="col-2">Lebar</label>
+                                    <input type="text" class="form-control" name="lebar" value="{{ $ukuran->lebar }}" required>
                                     @error('lebar')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
 
                               @method('PUT')
-                              <button type="submit">Submit</button>
+                              <button type="submit" class="button-submit">Submit</button>
                         </form>             
                   </div>
             </div>

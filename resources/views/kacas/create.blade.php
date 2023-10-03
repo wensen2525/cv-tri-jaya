@@ -2,16 +2,14 @@
       <div class="container">
             <div class="row">
                   <div class="col-12">
-                        <h1 class="text-center"><a href="{{ route('kaca.index') }}" class="text-decoration-none text-dark">KACA</a></h1>
-                        <p class="text-center">Tambah Kaca</p>
-                        <hr>
+                        <div style="visibility: hidden" class="py-4">padding</div>
                   </div>
                   <div class="col-10">
                         
                         <form method="POST" action="{{ route('kaca.store') }}" enctype="multipart/form-data">
                               @csrf
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="jenis_id">Jenis<span class="require-input">*</span></label>
+                                    <label for="jenis_id" class="col-2">Jenis<span class="require-input">*</span></label>
                                     <select class="form-select" name="jenis_id" required>
                                           <option disabled selected>Pilih Jenis</option>
                                           @foreach($jenises as $j)
@@ -24,7 +22,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="nama">Nama kaca<span class="require-input">*</span></label>
+                                    <label for="nama" class="col-2">Nama kaca<span class="require-input">*</span></label>
                                     <input class="form-control" type="text" name="nama" required value="{{old('nama', null)}}">
                                     
                                     @error('nama')
@@ -32,7 +30,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="stok">Stok<span class="require-input">*</span></label>
+                                    <label for="stok" class="col-2">Stok<span class="require-input">*</span></label>
                                     <input class="form-control" type="number" name="stok" required value="{{old('stok', null)}}">
                                     
                                     @error('stok')
@@ -40,7 +38,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="harga">Harga<span class="require-input">*</span></label>
+                                    <label for="harga" class="col-2">Harga<span class="require-input">*</span></label>
                                     <input class="form-control" type="number" name="harga" required value="{{old('harga', null)}}">
                                     
                                     @error('harga')
@@ -48,7 +46,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="ketebalan">Ketebalan</label>
+                                    <label for="ketebalan" class="col-2">Ketebalan</label>
                                     <div class="input-group">
                                           <input class="form-control" type="number" name="ketebalan" aria-describedby="ketebalan_input" value="{{old('ketebalan', null)}}">
                                           <span class="input-group-text" id="ketebalan_input">mm</span>
@@ -59,15 +57,39 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="image">Gambar<span class="require-input">*</span></label>
-                                    <input type="file" class="border" name="image" required value="{{old('image', null)}}">
+                                    <label for="image" class="col-2">Gambar<span class="require-input">*</span></label>
+                                    <input type="file" class="form-control" name="image" required value="{{old('image', null)}}">
                                     
                                     @error('image')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
                               </div>
 
-                              <button type="submit">Submit</button>
+                              <hr>
+                              <small class="text-muted">(optional)</small>
+                              <p class="fw-bold">Ukuran</span></p>
+
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="panjang" class="col-2">Panjang</label>
+                                    @for ($j = 0; $j < 3; $j++)
+                                          <input type="number" name="panjang[{{ $j }}]" required class="form-control">
+                                    @endfor
+
+                                    @error('panjang')
+                                          <div class="text-danger" style="font-style: italic">{{ $message }}</div>
+                                    @enderror
+                              </div>
+                              <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
+                                    <label for="lebar" class="col-2">Lebar</label>
+                                    @for ($j = 0; $j < 3; $j++)
+                                          <input type="number" name="lebar[{{ $j }}]" required class="form-control">
+                                    @endfor
+                                    @error('lebar')
+                                          <div class="text-danger" style="font-style: italic">{{ $message }}</div>
+                                    @enderror
+                              </div>
+
+                              <button type="submit" class="button-submit">Submit</button>
                         </form>
                   </div>
             </div>

@@ -2,9 +2,7 @@
       <div class="container">
             <div class="row">
                   <div class="col-12">
-                        <h1 class="text-center"><a href="{{ route('kaca.index') }}" class="text-decoration-none text-dark">KACA</a></h1>
-                        <p class="text-center">edit kaca</p>
-                        <hr>
+                        <div style="visibility: hidden" class="py-4">padding</div>
                   </div>
                   <div class="col-10">
                         <form method="POST" action="{{ route('kaca.update', $kaca) }}" enctype="multipart/form-data">
@@ -12,7 +10,7 @@
                               @method('UPDATE')
                               
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="jenis_id">Jenis<span class="require-input">*</span></label>
+                                    <label for="jenis_id" class="col-2">Jenis<span class="require-input">*</span></label>
                                     <select class="form-select" name="jenis_id" required>
                                           <option disabled selected>Pilih Jenis</option>
                                           @foreach($jenises as $j)
@@ -25,7 +23,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="nama">Nama kaca<span class="require-input">*</span></label>
+                                    <label for="nama" class="col-2">Nama kaca<span class="require-input">*</span></label>
                                     <input class="form-control" type="text" name="nama" required value="{{$kaca->nama}}">
                                     
                                     @error('nama')
@@ -33,7 +31,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="stok">Stok<span class="require-input">*</span></label>
+                                    <label for="stok" class="col-2">Stok<span class="require-input">*</span></label>
                                     <input class="form-control" type="number" name="stok" required value="{{$kaca->stok}}">
                                     
                                     @error('stok')
@@ -41,7 +39,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="harga">Harga<span class="require-input">*</span></label>
+                                    <label for="harga" class="col-2">Harga<span class="require-input">*</span></label>
                                     <input class="form-control" type="number" name="harga" required value="{{ $kaca->harga }}">
                                     
                                     @error('harga')
@@ -49,7 +47,7 @@
                                     @enderror
                               </div>
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                    <label for="ketebalan">Ketebalan</label>
+                                    <label for="ketebalan" class="col-2">Ketebalan</label>
                                     <div class="input-group">
                                           <input class="form-control" type="number" name="ketebalan" aria-describedby="ketebalan_input" value="{{ $kaca->ketebalan }}">
                                           <span class="input-group-text" id="ketebalan_input">mm</span>
@@ -61,20 +59,20 @@
                               </div>
                               @if($kaca->image)
                                     <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                          <label for="image">Gambar Baru<span class="require-input">*</span></label>
-                                          <input type="file" class="border" name="image" required>
+                                          <label for="image" class="col-2">Gambar Baru<span class="require-input">*</span></label>
+                                          <input type="file" class="form-control" name="image">
                                           @error('image')
                                                 <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                           @enderror
                                     </div>
                                     <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                          <label>Gambar Lama</label>
+                                          <label class="col-2">Gambar Lama</label>
                                           <img src="{{ url('./storage/kaca/'. $kaca->image) }}" alt="{{ $kaca->image }}" class="col-3 img-fluid border border-1 border-black">
                                     </div>
                               @else
                                     <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
-                                          <label for="image">Gambar<span class="require-input">*</span></label>
-                                          <input type="file" class="border" name="image" required>
+                                          <label for="image" class="col-2">Gambar<span class="require-input">*</span></label>
+                                          <input type="file" class="form-control" name="image" required>
                                           @error('image')
                                                 <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                           @enderror
@@ -82,7 +80,7 @@
                               @endif
 
                               @method('PUT')
-                              <button type="submit">Submit</button>
+                              <button type="submit" class="button-submit">Submit</button>
                         </form>             
                   </div>
             </div>
