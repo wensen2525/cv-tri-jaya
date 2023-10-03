@@ -13,7 +13,7 @@ document.onreadystatechange = function () {
             let loading_complete = document.getElementById('loading');
             setTimeout(function(){
                   console.log('jalan')
-                  loading_complete.style.display="none";
+                  document.getElementById('loading').style.display="none";
                   document.getElementById('app').style.display="block";
             },1500);
       };
