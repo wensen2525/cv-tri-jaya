@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
+    {{-- <title>{{ config('app.name', 'CV TRI JAYA') }}</title> --}}
+    <title>CV TRI JAYA | {{ $pageTitle }}</title>
+
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
@@ -25,7 +27,7 @@
     </div>
     <div id="app" style="display: none">
     <x-alert></x-alert>
-      <nav class="nav-container navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+      <nav class="nav-container navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
         <div class="container-fluid">
 
             {{-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -37,12 +39,12 @@
                     <p class="nama-company-placeholder col m-0 ms-3">CV TRI JAYA</p>
                 </a>
             </div>
-            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button> --}}
+            <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">
+                <span class="burger-icon bi bi-list"></span>
+            </button>
             <p class="page-name-placeholder position-absolute top-50 start-50 translate-middle ">{{ $pageTitle }}</p>
             
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
                 <!-- Left Side Of Navbar -->
                 @auth
                 <ul class="navbar-nav me-auto col d-flex justify-content-center">
@@ -59,29 +61,30 @@
                 @endauth
 
                 @guest
-                {{-- <a class="dropdown-item" href="/">
-                    {{ __('Home') }}
-                </a>
-                <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li> --}}
-                <i class="burger-icon bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"></i>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title nama-company-placeholder-offcanvas" id="offcanvasNavbarLabel">CV TRI JAYA</h5>
-                        <button type="button" class="btn-close burger-item-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body navmenu-container">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 gap-4">
-                            <li class="nav-item">
-                                <a class="navmenu nav-link ps-2" aria-current="page" href="{{ url('/')}}">BERANDA</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="navmenu nav-link ps-2" href="{{ url('/product') }}">PRODUK</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="navmenu nav-link ps-2" href="{{ url('/project') }}">PROYEK</a>
-                            </li>
-                    </div>
-                </div>
+                    {{-- <a class="dropdown-item" href="/">
+                        {{ __('Home') }}
+                    </a>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li> --}}
+                    {{-- <i class="burger-icon bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"></i> --}}
+                    {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel"> --}}
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title nama-company-placeholder-offcanvas" id="offcanvasNavbarLabel">CV TRI JAYA</h5>
+                            <button type="button" class="btn-close burger-item-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        {{-- <div class="offcanvas-body navmenu-container"> --}}
+                            <ul class="navbar-nav justify-content-end ps-4 pe-5 gap-4 bg-white">
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" aria-current="page" href="{{ url('/')}}">BERANDA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" href="{{ url('/product') }}">PRODUK</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" href="{{ url('/project') }}">PROYEK</a>
+                                </li>
+                            </ul>
+                        {{-- </div> --}}
+                    {{-- </div> --}}
                 @endguest
                 </ul>
 
@@ -219,6 +222,7 @@
     .navmenu{
 
         color: #1e1e1e;
+        font-size: 1.125rem;
     }
     .navmenu:hover{
 
@@ -338,7 +342,7 @@
             font-size: 1.5rem;
             color: #5181C1;
             font-weight: 700;
-            margin-inline-end: 15px;
+            /* margin-inline-end: 15px; */
         }
         .burger-item-close{
 

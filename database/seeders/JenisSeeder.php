@@ -15,12 +15,12 @@ class JenisSeeder extends Seeder
     {
         DB::table('jenis')->insert([
             [
-                'nama' => 'Polos',
-                'deskripsi' => 'Merupakan produk komoditi dalan perdagangan kaca. Banyak digunakan untuk ragam jenis bangunan seperti perkantoran, pergudangan, perumahan, cafe dan lainnya. Memiliki varian ketebalan dan ukuran yang beragam.',
-            ],
-            [
                 'nama' => 'Warna',
                 'deskripsi' => 'Terdiri dari banyak warna yang cocok untuk keperluan interior maupun eksterior bangunan anda. Menambah kesan artistik ruangan anda baik dari dalam maupun dari luar. Pastikan pilihan anda tepat sehingga mendapatkan hasil yang maksimal.',
+            ],
+            [
+                'nama' => 'Polos',
+                'deskripsi' => 'Merupakan produk komoditi dalan perdagangan kaca. Banyak digunakan untuk ragam jenis bangunan seperti perkantoran, pergudangan, perumahan, cafe dan lainnya. Memiliki varian ketebalan dan ukuran yang beragam.',
             ],
             [
                 'nama' => 'Reflektif',
