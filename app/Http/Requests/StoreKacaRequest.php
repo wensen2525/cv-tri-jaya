@@ -28,6 +28,8 @@ class StoreKacaRequest extends FormRequest
             'harga' => ['required', 'numeric', 'min:0'],
             'stok' => ['required', 'numeric', 'min:0'],
             'image' => ['image','max:1999', 'mimes:jpg,png,jpeg'],
+            'panjang.*' => ['numeric', 'min:0'],
+            'lebar.*' => ['numeric', 'min:0'],
         ];
     }
 }
