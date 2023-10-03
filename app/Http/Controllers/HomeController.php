@@ -48,7 +48,45 @@ class HomeController extends Controller
                 'index' => 6
             ]
             ];
-        return view('home', compact('jasas'));
+
+        $lokasis = [
+            [
+                'img' => 'lokasi1',
+                'nama' => 'Jl. Kemiri
+                No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan, Banten 15418',
+                'link' => 'https://www.google.com/maps/place/CV+TRI+JAYA/@-6.3566538,106.7491487,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69ef1143dce2bb:0x778ff404f4a9f656!8m2!3d-6.3566592!4d106.7540196!16s%2Fg%2F11bcdbgnft?entry=ttu'
+            ],
+            [
+                'img' => 'lokasi2',
+                'nama' => 'Ruko Sawangan
+                Megah, No. 9, Jl. Raya Parung - Ciputat, Kedaung, Kec. Sawangan,
+                Kota Depok, Jawa Barat 16517',
+                'link' => 'https://www.google.com/maps/place/Tri+Jaya+Kaca+%26+Aluminium/@-6.3738788,106.7441055,18z/data=!4m14!1m7!3m6!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!2sTri+Jaya+Kaca+%26+Aluminium!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd!3m5!1s0x2e69ef48358b93f1:0xc17b0c19dd4a8a19!8m2!3d-6.3739241!4d106.7451516!16s%2Fg%2F11bc7nl7fd?entry=ttu'
+            ]
+        ];
+        $galeris = [
+            [
+                'img' => 'home-location',
+                'link' => '#lokasi',
+                'title' => 'LOKASI'
+            ],
+            [
+                'img' => 'home-mesin',
+                'link' => '#alatproduksi',
+                'title' => 'ALAT PRODUKSI'
+            ],
+            [
+                'img' => 'home-produk',
+                'link' => '/product',
+                'title' => 'PRODUK'
+            ],
+            [
+                'img' => 'home-project',
+                'link' => '/project',
+                'title' => 'PROYEK'
+            ]
+        ];
+        return view('home', compact('jasas','lokasis','galeris'));
     }
 
     public function unAuthorized()

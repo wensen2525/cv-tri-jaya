@@ -8,7 +8,7 @@
       </head>
       <section>
             <div class="container-fluid p-0">
-                  <img src="{{ url('./storage/gambar/bg-blue.svg') }}" alt="" 
+                  <img src="{{ url('./storage/gambar/bg-blue.svg') }}" alt=""
                   class="background-img position-absolute">
 
                   <div class="carousel-container">
@@ -35,11 +35,11 @@
                                                             <div class="position-absolute bottom-0 end-0 pe-4 pb-4">
                                                                   <p class="year-placeholder m-0">{{ $proyek->first_year }}</p>
                                                             </div>
-                                                            
+
                                                       </div>
                                                 </div>
                                           </div>
-                                    </div>           
+                                    </div>
                               </div>
                               @endforeach
                         </div>
@@ -50,8 +50,7 @@
                               <p class="ad-text-header">Mengapa Memilih Kami?</p>
                               <p class="ad-text-content">“Visi kami adalah menjadi penyuplai kaca dan cermin yang memiliki kompetensi tinggi di Jakarta dan sekitarnya.”</p>
                               <div class="mt-5">
-                                    
-                                    <a href="{{ url('./#jump-section-hubungi-kami') }}" class="ad-contact-btn p-3">Hubungi Kami<i class="bi bi-chevron-right"></i></a>
+                                    <a href="{{ url('./#jump-section-hubungi-kami') }}" class="ad-contact-btn p-3">Hubungi Kami <i class="bi bi-chevron-right"></i></a>
                               </div>
                         </div>
                   </div>
@@ -67,16 +66,16 @@
             z-index: -1;
       }
       .carousel-container{
-            
+
             margin-inline: 7vw;
-            margin-top: 6vw;  
+            margin-top: 6vw;
       }
       .project-container{
-            
+
             height: 535px;
       }
       .project-img{
-            
+
             width: 400px;
             height: 450px;
             border-radius: 5px;
@@ -84,14 +83,14 @@
             background-color: #1e1e1e;
       }
       .project-card-container{
-            
+
             width: 350px;
             height: 125px;
             background-color: #FFFFFF;
             border-radius: 10px;
       }
       .year-container{
-            
+
             height: 100%;
       }
       .project-name-placeholder{
@@ -135,7 +134,7 @@
 
             .ad-container{
 
-                  
+
                   margin-top: 20vw;
                   margin-bottom: 25vw;
             }

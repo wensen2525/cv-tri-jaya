@@ -1,4 +1,4 @@
-$(document).ready(function(){      
+$(document).ready(function(){
 
 });
 
@@ -17,5 +17,6 @@ document.onreadystatechange = function () {
                   document.getElementById('app').style.display="block";
             },1500);
       };
-            
+
 }
+
