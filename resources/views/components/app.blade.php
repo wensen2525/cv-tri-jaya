@@ -30,7 +30,7 @@
 
             {{-- <div class="left-nav-container">
                 <a class="row navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('./storage/gambar/logo-color.png') }}" alt="Logo" class="company-logo col p-0">    
+                    <img src="{{ url('./storage/gambar/logo-color.png') }}" alt="Logo" class="company-logo col p-0">
                     <p class="nama-company-placeholder col m-0 ms-3">CV TRI JAYA</p>
                 </a>
             </div>
@@ -84,7 +84,7 @@
                 <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li>
                 @endguest
                 </ul>
-                
+
 
                 <ul class="navbar-nav ms-auto">
                     @guest
@@ -236,7 +236,7 @@
 
             font-size: 1.5rem;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1e1e1e;     
+            color: #1e1e1e;
         }
         .burger-icon {
 
