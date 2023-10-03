@@ -143,7 +143,7 @@
             <div class="row">
                 <div class="col-xl-4 col-md-4">
                     <div class="row">
-                        <a href="" class="footer-company-name">CV TRI JAYA</a>
+                        <a href="{{ url('./') }}" class="footer-company-name">CV TRI JAYA</a>
                         <p class="footer-address">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan<br>Banten 15418</p>
                         <p class="footer-copyright"><i class="bi bi-c-circle"></i>&nbsp CV Tri Jaya - Indonesia</p>
                     </div>
@@ -157,21 +157,21 @@
                 <div class="explore-menu-container col-md-2">
                     <p class="footer-menu-header">EXPLORE</p>
                     <div class="row gap-1">
-                        <a href="" class="footer-menu">Beranda</a>
-                        <a href="" class="footer-menu">Produk</a>
-                        <a href="" class="footer-menu">Proyek</a>
+                        <a href="{{ url('/') }}" class="footer-menu">Beranda</a>
+                        <a href="{{ url('/product') }}" class="footer-menu">Produk</a>
+                        <a href="{{ url('/project') }}" class="footer-menu">Proyek</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3">
                     <div class="jadwal-menu-container row">
                         <p class="footer-menu-header p-0">JADWAL BUKA</p>
                         <div class="col p-0">
-                            <div class="footer-menu">Senin - Sabtu</div>
-                            <div class="footer-menu">Minggu</div>
+                            <div class="footer-menu text-secondary">Senin - Sabtu</div>
+                            <div class="footer-menu text-secondary">Minggu</div>
                         </div>
                         <div class="col p-0">
-                            <div class="footer-menu">08.15 - 16.30 WIB</div>
-                            <div class="footer-menu">TUTUP</div>
+                            <div class="footer-menu text-secondary">08.15 - 16.30 WIB</div>
+                            <div class="footer-menu text-secondary">TUTUP</div>
                         </div>
                     </div>
                 </div>

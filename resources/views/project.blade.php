@@ -51,7 +51,7 @@
                               <p class="ad-text-content">“Visi kami adalah menjadi penyuplai kaca dan cermin yang memiliki kompetensi tinggi di Jakarta dan sekitarnya.”</p>
                               <div class="mt-5">
                                     
-                                    <a href="{{ url('./#jump-section-hubungi-kami') }}" class="ad-contact-btn p-3">Hubungi Kami <i class="bi bi-chevron-right"></i></a>
+                                    <a href="{{ url('./#jump-section-hubungi-kami') }}" class="ad-contact-btn p-3">Hubungi Kami<i class="bi bi-chevron-right"></i></a>
                               </div>
                         </div>
                   </div>
