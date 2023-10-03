@@ -2,9 +2,7 @@
       <div class="container">
             <div class="row">
                   <div class="col">
-                        <h1 class="text-center">KACA</h1>
-                        <hr>
-                        {{-- code here --}}
+                        <div style="visibility: hidden" class="py-4">padding</div>
                         <a href="{{ route('kaca.create') }}" class="btn btn-primary">Tambah Kaca</a>
                         <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran</a>
                         <table class="table">

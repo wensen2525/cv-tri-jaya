@@ -23,3 +23,16 @@ select.form-select{
 span.input-group-text{
       border: 1px solid var(--input-border);
 }
+
+
+//button
+.button-submit{
+      background: #4C48FF;
+      padding: 8px 15px;
+      color: white;
+      border-radius: 5px;
+      border: 0;
+}
+.button-submit:hover{
+      background: #100cff;
+}

@@ -44,6 +44,12 @@
                               Jenis
                               </a>
                         </li>
+                        <li class="nav-item">
+                              <a href="/dashboard/ukuran"
+                              class="nav-link {{ Request::is('dashboard/ukuran') ? 'active' : 'not-active' }}">
+                              Ukuran
+                              </a>
+                        </li>
                         <div class="p-3"></div>
                         <p class="fw-bold" style="color: #AAAAAA;cursor:default">Others</p>
                         <li class="nav-item">

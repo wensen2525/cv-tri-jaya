@@ -1,10 +1,8 @@
 <x-app>
-      <div class="container p-5">
-            <div class="row pt-3">
+      <div class="container">
+            <div class="row">
                   <div class="col">
-                        <h1 class="text-center">DASHBOARD ADMIN</h1>
-                        <hr>
-                        {{-- code here --}}
+                        <div style="visibility: hidden" class="py-4">padding</div>
                         <p>Page after login and register</p>
                   </div>
             </div>

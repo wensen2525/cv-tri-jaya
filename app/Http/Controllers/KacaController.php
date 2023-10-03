@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kaca;
 use App\Models\Jenis;
+use App\Models\Ukuran;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKacaRequest;
 use App\Http\Requests\UpdateKacaRequest;
@@ -35,6 +36,7 @@ class KacaController extends Controller
 
     public function store(StoreKacaRequest $request)
     {
+        dd($request);
         if($request->validated()){
 
             $fileName = null;
@@ -45,13 +47,19 @@ class KacaController extends Controller
                 $image->move($destinationPath, $fileName);
             }
             
-            Kaca::create([
+            $kaca_ID = Kaca::create([
                 'jenis_id' => $request->jenis_id,
                 'nama' => $request->nama,
                 'stok' => $request->stok,
                 'harga' => $request->harga,
                 'ketebalan' => $request->ketebalan,
                 'image' => $fileName
+            ])->get('id');
+
+            Ukuran::create([
+                'kaca_id' => $request->kaca_ID,
+                'panjang' => $request->panjang,
+                'lebar' => $request->lebar,
             ]);
 
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');

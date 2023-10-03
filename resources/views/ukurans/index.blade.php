@@ -2,9 +2,7 @@
       <div class="container">
             <div class="row">
                   <div class="col">
-                        <h1 class="text-center">UKURAN</h1>
-                        <hr>
-                        {{-- code here --}}
+                        <div style="visibility: hidden" class="py-4">padding</div>
                         <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran</a>
                         <table class="table">
                               <thead>
