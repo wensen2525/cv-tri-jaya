@@ -119,7 +119,7 @@
     }
     .nav{
 
-        font-size: 1.5rem;
+        font-size: 1.325rem;
         margin-top: 75px;
         margin-bottom: 50px;
     }
@@ -147,7 +147,7 @@
     }
     .heading-container{
 
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
     .jenis-container{
 
