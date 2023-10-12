@@ -20,11 +20,7 @@ class ProyekSeeder extends Seeder
                 'first_year' => '2016',
             ],
             [
-                'nama' => 'Bank Kendari',
-                'first_year' => '2017',
-            ],
-            [
-                'nama' => 'Universitas Islam',
+                'nama' => 'Universitas Islam Indonesia',
                 'first_year' => '2019',
             ],
             [
@@ -51,6 +47,14 @@ class ProyekSeeder extends Seeder
                 'nama' => 'Mall Sumarecon Serpong',
                 'first_year' => '2023',
             ],
+            [
+                'nama' => 'SMK Industri M 2100',
+                'first_year' => '2023',
+            ],
+            [
+                'nama' => 'SMK Industri Tayu',
+                'first_year' => '2023',
+            ],         
         ]);
     }
 }
