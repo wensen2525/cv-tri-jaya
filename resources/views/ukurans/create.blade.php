@@ -1,9 +1,6 @@
 <x-app>
       <div class="container">
             <div class="row">
-                  <div class="col-12">
-                        <div style="visibility: hidden" class="py-4">padding</div>
-                  </div>
                   <div class="col-10">
                         
                         <form method="POST" action="{{ route('ukuran.store') }}" enctype="multipart/form-data">

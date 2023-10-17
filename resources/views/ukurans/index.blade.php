@@ -1,9 +1,10 @@
 <x-app>
-      <div class="container">
+      <div class="container p-5">
             <div class="row">
+                  <div class="col-12 d-flex justify-content-end">
+                        <a href="{{ route('ukuran.create') }}" class="btn-primary2 text-decoration-none"><i class="bi bi-plus"></i> Tambah Ukuran</a>
+                  </div>
                   <div class="col">
-                        <div style="visibility: hidden" class="py-4">padding</div>
-                        <a href="{{ route('ukuran.create') }}" class="btn btn-primary">Tambah Ukuran</a>
                         <table class="table">
                               <thead>
                                 <tr>
@@ -24,10 +25,10 @@
                                     <td scope="row" class="d-flex gap-2">
                                           <form id="delete-form" action="{{ route('ukuran.destroy', $ukuran) }}" method="post" enctype="multipart/form-data">
                                                 @method('DELETE')
-                                                      <button id="delete-btn" class="btn btn-danger">Delete</button>
+                                                      <button id="delete-btn" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
                                                 @csrf
                                           </form>
-                                          <a href="{{ route('ukuran.edit', $ukuran) }}" class="btn btn-warning">Update</a>
+                                          <a href="{{ route('ukuran.edit', $ukuran) }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
