@@ -128,17 +128,93 @@
         </div>
       </nav>
 
-      @auth
-        <main class="d-flex">
-            <x-sidebar_admin />
-            {{ $slot }}
-        </main>
-      @endauth
-      @guest
-        <main>
+        @auth
+            <main class="d-flex">
+                <x-sidebar_admin />
                 {{ $slot }}
-        </main>
-      @endguest
+            </main>
+        @endauth
+        @guest
+            <main>
+                {{ $slot }}
+            </main>
+        @else
+            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'CV TRI JAYA') }}
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        @auth
+                        <ul class="navbar-nav me-auto col d-flex justify-content-center">
+                        @if(Auth::user()->role == 'ADMIN')
+                            {{-- <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('jenis.index') }}">JENIS</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('kaca.index') }}">KACA</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('ukuran.index') }}">UKURAN</a></li> --}}
+                        @elseif (Auth::user()->role == 'USER')
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">PESAN</a></li>
+                            <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">KACA</a></li>
+                        @endif
+                        @endauth
+
+                        @guest
+                        <a class="dropdown-item" href="/">
+                            {{ __('Home') }}
+                        </a>
+                        <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li>
+                        @endguest
+                        </ul>
+                        
+
+                        <ul class="navbar-nav ms-auto">
+                            @guest
+                                @if (!Route::has('login'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    </li>
+                                @endif
+
+                                @if (!Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown ">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-end align-items-center gap-2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/">
+                                            {{ __('Home') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <main>
+                {{ $slot }}
+            </main>
+        @endguest
     </div>
 
     <div class="footer-container card-footer">
