@@ -20,4 +20,4 @@
                   </div>
             </div>
       </div>
-</x-app>
+</x-home>

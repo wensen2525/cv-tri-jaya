@@ -1,12 +1,12 @@
-<x-app>
+<x-home>
       <div class="container">
             <div class="row">
                   <div class="col">
                         <h1 class="text-center">DASHBOARD</h1>
                         <hr>
                         {{-- code here --}}
-                        <p>Page after login and register</p>
+                        <p>test</p>
                   </div>
             </div>
       </div>
-</x-app>
+</x-home>

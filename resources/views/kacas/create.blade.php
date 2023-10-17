@@ -91,7 +91,7 @@
                   </div>
             </div>
       </div>
-</x-app>
+</x-home>
 {{-- CREATE --}}
 {{-- <form method="POST" action="{{ route('routing-to') }}" enctype="multipart/form-data">
       @csrf

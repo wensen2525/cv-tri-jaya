@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Proyek extends Model
 {
     use HasFactory;
+
+    protected $table = 'proyeks';
+    protected $primaryKey = 'id';
+    protected $timestamp = true;
+    protected $guarded = [];
 }

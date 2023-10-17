@@ -60,7 +60,7 @@
                   </div>
             </div>
       </div>
-</x-app>
+</x-home>
 
 <script>
       document.getElementById('delete-btn').addEventListener('click', function(e) {

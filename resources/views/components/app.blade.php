@@ -8,7 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CV TRI JAYA') }}</title>
+    {{-- <title>{{ config('app.name', 'CV TRI JAYA') }}</title> --}}
+    <title>CV TRI JAYA | {{ $pageTitle }}</title>
+
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
@@ -24,14 +26,117 @@
             ></lottie-player>
     </div>
     <div id="app" style="display: none">
-        <x-alert></x-alert>
+    <x-alert></x-alert>
+      <nav class="nav-container navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
+        <div class="container-fluid">
+
+            {{-- <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'CV TRI JAYA') }}
+            </a> --}}
+            <div class="left-nav-container">
+                <a class="row navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ url('./storage/gambar/logo-color.png') }}" alt="Logo" class="company-logo col p-0">
+                    <p class="nama-company-placeholder col m-0 ms-3">CV TRI JAYA</p>
+                </a>
+            </div>
+            <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false">
+                <span class="burger-icon bi bi-list"></span>
+            </button>
+            <p class="page-name-placeholder position-absolute top-50 start-50 translate-middle ">{{ $pageTitle }}</p>
+            
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
+                <!-- Left Side Of Navbar -->
+                @auth
+                <ul class="navbar-nav me-auto col d-flex justify-content-center">
+                @if(Auth::user()->role == 'ADMIN')
+                    {{-- <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('jenis.index') }}">JENIS</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('kaca.index') }}">KACA</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('ukuran.index') }}">UKURAN</a></li> --}}
+                @elseif (Auth::user()->role == 'USER')
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ route('dashboard') }}">DASHBOARD</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">PESAN</a></li>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="">KACA</a></li>
+                @endif
+                @endauth
+
+                @guest
+                    {{-- <a class="dropdown-item" href="/">
+                        {{ __('Home') }}
+                    </a>
+                    <li class="nav-item"><a class="text-decoration-none text-muted mx-3" href="{{ url('/product') }}">PRODUCT</a></li> --}}
+                    {{-- <i class="burger-icon bi bi-list" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"></i> --}}
+                    {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel"> --}}
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title nama-company-placeholder-offcanvas" id="offcanvasNavbarLabel">CV TRI JAYA</h5>
+                            <button type="button" class="btn-close burger-item-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        {{-- <div class="offcanvas-body navmenu-container"> --}}
+                            <ul class="navbar-nav justify-content-end ps-4 pe-5 gap-4 bg-white">
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" aria-current="page" href="{{ url('/')}}">BERANDA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" href="{{ url('/product') }}">PRODUK</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="navmenu nav-link" href="{{ url('/project') }}">PROYEK</a>
+                                </li>
+                            </ul>
+                        {{-- </div> --}}
+                    {{-- </div> --}}
+                @endguest
+                </ul>
+
+
+                <ul class="navbar-nav ms-auto">
+                    @guest
+                        @if (!Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                        @endif
+
+                        @if (!Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown ">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex justify-content-end align-items-center gap-2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/">
+                                    {{ __('Home') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+        </div>
+      </nav>
+
         @auth
-            <main style="display: flex">
-                <div style="position: sticky;top:0;bottom:0;height:100vh">
-                    <x-sidebar_admin />
-                </div>
+            <main class="d-flex">
+                <x-sidebar_admin />
                 {{ $slot }}
-                
+            </main>
+        @endauth
+        @guest
+            <main>
+                {{ $slot }}
             </main>
         @else
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
@@ -111,14 +216,59 @@
             </main>
         @endguest
     </div>
+
+    <div class="footer-container card-footer">
+
+        <div class="row">
+            <div class="col-xl-4 col-md-4">
+                <div class="row">
+                    <a href="{{ url('./') }}" class="footer-company-name">CV TRI JAYA</a>
+                    <p class="footer-address">Jl. Kemiri No.51 Pondok Cabe Udik, Pamulang, Tangerang Selatan<br>Banten 15418</p>
+                    <p class="footer-copyright"><i class="bi bi-c-circle"></i>&nbsp CV Tri Jaya - Indonesia</p>
+                </div>
+
+            </div>
+            <div class="contact-menu-container col-md-4 col-lg-3">
+                <p class="footer-menu-header mb-4">CONTACT US</p>
+                <a href="{{ url('https://mail.google.com/mail/?view=cm&source=mailto&to=cvtrijayakaca@gmail.com') }}" target="blank" class="footer-menu-btn px-4 py-2 me-2 d-inline-block"><i class="bi bi-envelope-at pe-2 text-warning"></i> Gmail</a>
+                <a href="{{ url('https://wa.me/6283875418202') }}" target="blank" class="footer-menu-btn px-4 py-2 me-2 mt-2 d-inline-block "><i class="bi bi-whatsapp pe-2 text-success"></i> Whatsapp</a>
+            </div>
+            <div class="explore-menu-container col-md-2">
+                <p class="footer-menu-header">EXPLORE</p>
+                <div class="row gap-1">
+                    <a href="{{ url('/') }}" class="footer-menu">Beranda</a>
+                    <a href="{{ url('/product') }}" class="footer-menu">Produk</a>
+                    <a href="{{ url('/project') }}" class="footer-menu">Proyek</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <div class="jadwal-menu-container row">
+                    <p class="footer-menu-header p-0">JADWAL BUKA</p>
+                    <div class="col p-0">
+                        <div class="footer-menu text-secondary">Senin - Sabtu</div>
+                        <div class="footer-menu text-secondary">Minggu</div>
+                    </div>
+                    <div class="col p-0">
+                        <div class="footer-menu text-secondary">08.15 - 16.30 WIB</div>
+                        <div class="footer-menu text-secondary">TUTUP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
 
 <style>
+
+    .page-name-placeholder{
+
+        display: none;
+    }
     .nav-container {
 
-        height: 115px;
+        height: 90px;
     }
 
     .left-nav-container {
@@ -143,26 +293,64 @@
 
         font-size: 1.25rem;
         font-weight: 500;
-    }
-
-    .navmenu {
-
-        color: #1e1e1e
-    }
-
-    .navmenu:hover {
-
-        font-weight: 700
-    }
-
-    .navmenu-container {
-
         margin-inline-end: 70px;
     }
+    .navmenu{
 
+        color: #1e1e1e;
+        font-size: 1.125rem;
+    }
+    .navmenu:hover{
+
+        color: #CAB172;
+        font-weight: 700;
+    }
     .burger-icon {
 
         visibility: hidden;
+    }
+    .footer-container{
+
+        background-color: #1e1e1e;
+        padding: 50px 100px 50px 100px;
+    }
+    .footer-company-name{
+
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: 'Space Grotesk', sans-serif;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-address{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-copyright{
+
+        font-size: 0.875rem;
+        color: #FFFFFF;
+    }
+    .footer-menu-header{
+
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #FFFFFF;
+    }
+    .footer-menu-btn{
+
+        background-color: #1e1e1e;
+        border: 1px solid #FFFFFF;
+        border-radius: 2px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    .footer-menu{
+
+        font-size: 0.875rem;
+        text-decoration: none;
+        color: #FFFFFF;
     }
 
     @media only screen and (max-width: 1170px) {
@@ -181,10 +369,22 @@
 
             margin-inline-end: 30px;
         }
+        .footer-container{
+
+            padding: 50px 50px 50px 50px;
+        }
     }
 
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 767.5px) {
 
+        .page-name-placeholder{
+
+            text-transform: uppercase;
+            display: inline;
+            color: #1e1e1e;
+            font-size: 1rem;
+            font-weight: 400;
+        }
         .nav-container {
 
             height: 60px;
@@ -202,7 +402,6 @@
             height: 28px;
             margin-inline-start: 15px;
         }
-
         .nama-company-placeholder {
 
             display: none;
@@ -219,16 +418,32 @@
             font-size: 1.5rem;
             color: #5181C1;
             font-weight: 700;
-            margin-inline-end: 15px;
+            /* margin-inline-end: 15px; */
         }
         .burger-item-close{
 
             color: #5181C1;
         }
-        .dropdown-item {
+        .explore-menu-container{
 
-            display: block;
-            width: ;
+            display: none;
         }
+        .jadwal-menu-container{
+
+            display: none;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+        background-color: #eaeaea;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb { 
+        background-color: #5181C1;
+        border-radius: 50px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #4079c3;
     }
 </style>
