@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kaca;
 use App\Models\Jenis;
 use App\Models\Ukuran;
+use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreKacaRequest;
 use App\Http\Requests\UpdateKacaRequest;
@@ -50,16 +51,30 @@ class KacaController extends Controller
             $kaca_ID = Kaca::create([
                 'jenis_id' => $request->jenis_id,
                 'nama' => $request->nama,
-                'stok' => $request->stok,
+                'stok' => true,
                 'harga' => $request->harga,
                 'ketebalan' => $request->ketebalan,
                 'image' => $fileName
             ])->get('id');
 
+            History::create([
+                'nama' => $request->nama,
+                'type' => 'Kaca',
+                'status' => 'Created'
+            ]);
+
             Ukuran::create([
                 'kaca_id' => $request->kaca_ID,
                 'panjang' => $request->panjang,
                 'lebar' => $request->lebar,
+            ]);
+
+            $kaca = Kaca::find($request->kaca_ID);
+
+            History::create([
+                'nama' => $request->nama,
+                'type' => 'Ukuran',
+                'status' => 'Created'
             ]);
 
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');
@@ -95,7 +110,7 @@ class KacaController extends Controller
             'jenis_id' => ['sometimes','required'],
             'ketebalan' => ['sometimes','string', 'max:255'],
             'harga' => ['sometimes','required', 'numeric', 'min:0'],
-            'stok' => ['sometimes','required', 'numeric', 'min:0'],
+            'stok' => ['sometimes','required'],
             'image' => ['sometimes','image','max:1999', 'mimes:jpg,png,jpeg'],
         ]);
 
@@ -116,6 +131,18 @@ class KacaController extends Controller
             'image' => $fileName
         ]);
 
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Kaca',
+            'status' => 'Updated'
+        ]);
+
+        $kaca = Kaca::find($kaca->id);
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Ukuran',
+            'status' => 'Updated'
+        ]);
         return redirect()->route('kaca.index')->with('success', 'Kaca updated successfully');
     }
 

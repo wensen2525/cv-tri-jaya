@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('description')->nullable();
             $table->string('ketebalan')->nullable();
-            $table->integer('stok')->nullable();
+            $table->boolean('stok')->nullable();
             $table->integer('harga')->nullable();
             $table->string('image')->nullable();
             $table->boolean('active')->default(true);

@@ -62,8 +62,8 @@
                                     @enderror
                               </div>
 
-                              <hr>
-                              <small class="text-muted">(optional)</small>
+                              {{-- <hr> --}}
+                              {{-- <small class="text-muted">(optional)</small>
                               <p class="fw-bold">Ukuran</span></p>
 
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
@@ -84,7 +84,7 @@
                                     @error('lebar')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
-                              </div>
+                              </div> --}}
 
                               <button type="submit" class="button-submit">Submit</button>
                         </form>

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Kaca;
 use App\Models\Jenis;
 use App\Models\Proyek;
+use App\Models\History;
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -97,7 +98,12 @@ class HomeController extends Controller
     public function check()
     {
         if(auth()->user()->role === 'ADMIN'){
-            return view('dashboard-admin');
+            return view('dashboard-admin',[
+                'kaca' => Kaca::all(),
+                'proyek' => Proyek::all(),
+                'jenis' => Jenis::all(),
+                'histories' => History::all()->take(10),
+            ]);
         }elseif(auth()->user()->role === 'USER'){
             return view('dashboard-user');
         }else{
