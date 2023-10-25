@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proyek;
+use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProyekRequest;
 use App\Http\Requests\UpdateProyekRequest;
@@ -31,6 +32,7 @@ class ProyekController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
             'nama' => 'required|string',
             'maps_image' => 'image|max:1999|mimes:jpg,png,jpeg',
@@ -75,6 +77,12 @@ class ProyekController extends Controller
             'gedung_image' => $fileNameGedung,
         ]);
 
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Proyek',
+            'status' => 'Created'
+        ]);
+
         return redirect()->route('proyek.index')->with('success', 'Proyek created successfully');
     }
 
@@ -97,7 +105,7 @@ class ProyekController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProyekRequest $request, Proyek $proyek)
+    public function update(Request $request, Proyek $proyek)
     {   
         $request->validate([
             'nama' => 'sometimes|required|string',
@@ -141,6 +149,12 @@ class ProyekController extends Controller
             'description' => $request->description,
             'first_year' => $request->first_year,
             'gedung_image' => $fileNameGedung,
+        ]);
+
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Proyek',
+            'status' => 'Updated'
         ]);
 
         return redirect()->route('proyek.index')->with('success', 'Proyek updated successfully');

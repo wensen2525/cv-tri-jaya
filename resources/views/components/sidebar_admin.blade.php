@@ -99,34 +99,14 @@
                   <div class="{{ Request::is('dashboard/ukuran') || Request::is('dashboard/kaca') ? '' : '' }} {{ Request::is('dashboard/kaca') ? 'nav-item-active-bottom' : '' }} {{ Request::is('dashboard/ukuran') ? 'nav-item-active-top' : '' }}">
                         <a href="/dashboard/jenis" class="{{ Request::is('dashboard/jenis') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/ukuran') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-basket2-fill"></i> Jenis</a>
                   </div>
-                  <div class="{{ Request::is('dashboard/jenis') ? '' : '' }} {{ Request::is('dashboard/jenis') ? 'nav-item-active-bottom' : '' }}">
-                        <a href="/dashboard/ukuran" class="{{ Request::is('dashboard/ukuran') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Ukuran</a>
-                  </div>
-                  <div class="{{ Request::is('dashboard/ukuran') ? 'nav-item-active-bottom' : '' }} {{ Request::is('dashboard') ? 'nav-item-active-top' : '' }}">
-                        <a href="#" class="{{ Request::is('dashboard/ukuran') ? 'nav-list-0' : '' }} {{ Request::is('dashboard') ? 'nav-list-1' : '' }} padding-y px-4 text-decoration-none" style="cursor: default;color:#4C48FF"><div class="border border-light"></div></a>
-                  </div>
-            {{-- </div> --}}
-            {{-- <div class="px-3">
-                  <div class="border border-light"></div>
-            </div> --}}
-            {{-- <div class="nav flex-column ps-3"> --}}
-                  {{-- <div class="{{ Request::is('dashboard') ? 'nav-item-active-top' : '' }}">
-                        <a href="#" class="nav-list-1 padding-y px-4 text-decoration-none" style="cursor: default;color:#4C48FF">Kaca</a>
-                  </div> --}}
-                  <div class="{{ Request::is('dashboard/kaca') ? '' : '' }} {{ Request::is('dashboard/kaca') ? 'nav-item-active-top' : '' }}">
-                        <a href="/dashboard" class=" {{ Request::is('dashboard') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/kaca') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
-                  </div>
-                  <div class="{{ Request::is('dashboard/jenis') || Request::is('dashboard') ? '' : '' }} {{ Request::is('dashboard') ? 'nav-item-active-bottom' : '' }} {{ Request::is('dashboard/jenis') ? 'nav-item-active-top' : '' }}">
-                        <a href="/dashboard/kaca" class="{{ Request::is('dashboard/kaca') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/jenis') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-box-fill"></i> Kaca</a>
-                  </div>
-                  <div class="{{ Request::is('dashboard/ukuran') || Request::is('dashboard/kaca') ? '' : '' }} {{ Request::is('dashboard/kaca') ? 'nav-item-active-bottom' : '' }} {{ Request::is('dashboard/ukuran') ? 'nav-item-active-top' : '' }}">
-                        <a href="/dashboard/jenis" class="{{ Request::is('dashboard/jenis') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/ukuran') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-basket2-fill"></i> Jenis</a>
-                  </div>
-                  <div class="{{ Request::is('dashboard/jenis') ? '' : '' }} {{ Request::is('dashboard/jenis') ? 'nav-item-active-bottom' : '' }}">
-                        <a href="/dashboard/ukuran" class="{{ Request::is('dashboard/ukuran') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Ukuran</a>
+                  <div class="{{ Request::is('dashboard/proyek') || Request::is('dashboard/jenis') ? '' : '' }} {{ Request::is('dashboard/jenis') ? 'nav-item-active-bottom' : '' }} {{ Request::is('dashboard/proyek') ? 'nav-item-active-top' : '' }}">
+                        <a href="/dashboard/ukuran" class="{{ Request::is('dashboard/ukuran') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/proyek') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Ukuran</a>
                   </div>
                   <div class="{{ Request::is('dashboard/ukuran') ? 'nav-item-active-bottom' : '' }}">
-                        <a href="#" class="nav-list-0 padding-y px-4 text-decoration-none" style="cursor: default;color:#4C48FF">Home</a>
+                        <a href="/dashboard/proyek" class="{{ Request::is('dashboard/proyek') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Proyek</a>
+                  </div>
+                  <div class="{{ Request::is('dashboard/proyek') ? 'nav-item-active-bottom' : '' }}">
+                        <a href="#" class="{{ Request::is('dashboard/proyek') ? 'nav-list-0' : '' }} {{ Request::is('dashboard') ? 'nav-list-1' : '' }} padding-y px-4 text-decoration-none" style="cursor: default;color:#4C48FF"><div class="border-light"></div></a>
                   </div>
             </div>
             <div class="position-absolute" style="min-height: 60px;min-width: 100%;background:linear-gradient(#4C48FF 50%,transparent 100%);bottom:55px;transform: rotate(180deg)"></div>

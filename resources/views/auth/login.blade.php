@@ -1,6 +1,6 @@
-<x-home>
-<div class="container py-4">
-    <div class="row justify-content-center">
+<x-app pageTitle="Login">
+<div class="container p-5">
+    <div class="row justify-content-center py-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
@@ -55,11 +55,11 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
+                                {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
                     </form>
@@ -68,4 +68,4 @@
         </div>
     </div>
 </div>
-</x-home>
+</x-app>

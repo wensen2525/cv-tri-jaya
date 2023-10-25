@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jenis;
+use App\Models\History;
 use Illuminate\Http\Request;
 
 class JenisController extends Controller
@@ -40,6 +41,12 @@ class JenisController extends Controller
             'nama' => $request->nama,
         ]);
 
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Jenis',
+            'status' => 'Created'
+        ]);
+
         return redirect()->route('jenis.index')->with('success', 'Jenis created successfully');
     }
 
@@ -74,6 +81,12 @@ class JenisController extends Controller
 
         $jeni->update([
             'nama' => $request->nama,
+        ]);
+
+        History::create([
+            'nama' => $request->nama,
+            'type' => 'Jenis',
+            'status' => 'Updated'
         ]);
 
         return redirect()->route('jenis.index')->with('success', 'Jenis updated successfully');
