@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'CV TRI JAYA') }}</title> --}}
-    <title>CV TRI JAYA | {{ $pageTitle }}</title>
+    <title>CV TRI JAYA</title>
 
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
