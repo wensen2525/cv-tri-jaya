@@ -12,7 +12,7 @@ use App\Http\Controllers\UkuranController;
 Auth::routes();
 
 //landing page
-Route::get('/', [HomeController::class, 'index',]);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/unauthorized', [HomeController::class, 'unAuthorized'])->name('un-authorized');
 
 //dashboard

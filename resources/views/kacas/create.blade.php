@@ -1,11 +1,8 @@
-<x-home>
-      <div class="container">
+<x-app>
+      <div class="container p-5">
             <div class="row">
-                  <div class="col-12">
-                        <div style="visibility: hidden" class="py-4">padding</div>
-                  </div>
                   <div class="col-10">
-                        
+                        <p class="fs-3 fw-bold mb-4 border-bottom border-dark">Tambah Kaca</p>
                         <form method="POST" action="{{ route('kaca.store') }}" enctype="multipart/form-data">
                               @csrf
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
@@ -65,8 +62,8 @@
                                     @enderror
                               </div>
 
-                              <hr>
-                              <small class="text-muted">(optional)</small>
+                              {{-- <hr> --}}
+                              {{-- <small class="text-muted">(optional)</small>
                               <p class="fw-bold">Ukuran</span></p>
 
                               <div class="mb-3 d-block d-lg-flex align-items-lg-center gap-3">
@@ -87,7 +84,7 @@
                                     @error('lebar')
                                           <div class="text-danger" style="font-style: italic">{{ $message }}</div>
                                     @enderror
-                              </div>
+                              </div> --}}
 
                               <button type="submit" class="button-submit">Submit</button>
                         </form>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kaca;
 use App\Models\Ukuran;
+use App\Models\History;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUkuranRequest;
 use App\Http\Requests\UpdateUkuranRequest;
@@ -48,6 +49,14 @@ class UkuranController extends Controller
             'lebar' => $request->lebar
         ]);
 
+        $kaca = Kaca::find($request->kaca_id);
+        
+        History::create([
+            'nama' => $kaca->nama,
+            'type' => 'Ukuran',
+            'status' => 'Created'
+        ]);
+
         return redirect()->route('ukuran.index')->with('success', 'Ukuran created successfully.');
     }
 
@@ -75,6 +84,14 @@ class UkuranController extends Controller
         $ukuran->update([
             'panjang' => $request->panjang,
             'lebar' => $request->lebar,
+        ]);
+
+        $kaca = Kaca::find($request->kaca_id);
+
+        History::create([
+            'nama' => $kaca->nama,
+            'type' => 'Ukuran',
+            'status' => 'Updated'
         ]);
         
         return redirect()->route('ukuran.index')->with('success', 'Ukuran updated successfully.');
