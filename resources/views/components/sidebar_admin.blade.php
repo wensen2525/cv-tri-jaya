@@ -103,7 +103,7 @@
                         <a href="/dashboard/ukuran" class="{{ Request::is('dashboard/ukuran') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} {{ Request::is('dashboard/proyek') ? 'nav-list-1' : '' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Ukuran</a>
                   </div>
                   <div class="{{ Request::is('dashboard/ukuran') ? 'nav-item-active-bottom' : '' }}">
-                        <a href="/dashboard/proyek" class="{{ Request::is('dashboard/proyek') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} px-4 text-decoration-none"><i class="bi bi-123"></i> Proyek</a>
+                        <a href="/dashboard/proyek" class="{{ Request::is('dashboard/proyek') ? 'nav-list-active fw-semibold padding-y-active' : 'nav-list-0 padding-y' }} px-4 text-decoration-none"><i class="bi bi-building"></i> Proyek</a>
                   </div>
                   <div class="{{ Request::is('dashboard/proyek') ? 'nav-item-active-bottom' : '' }}">
                         <a href="#" class="{{ Request::is('dashboard/proyek') ? 'nav-list-0' : '' }} {{ Request::is('dashboard') ? 'nav-list-1' : '' }} padding-y px-4 text-decoration-none" style="cursor: default;color:#4C48FF"><div class="border-light"></div></a>
