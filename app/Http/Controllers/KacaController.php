@@ -63,19 +63,19 @@ class KacaController extends Controller
                 'status' => 'Created'
             ]);
 
-            Ukuran::create([
-                'kaca_id' => $request->kaca_ID,
-                'panjang' => $request->panjang,
-                'lebar' => $request->lebar,
-            ]);
+            // Ukuran::create([
+            //     'kaca_id' => $request->kaca_ID,
+            //     'panjang' => $request->panjang,
+            //     'lebar' => $request->lebar,
+            // ]);
 
-            $kaca = Kaca::find($request->kaca_ID);
+            // $kaca = Kaca::find($request->kaca_ID);
 
-            History::create([
-                'nama' => $request->nama,
-                'type' => 'Ukuran',
-                'status' => 'Created'
-            ]);
+            // History::create([
+            //     'nama' => $request->nama,
+            //     'type' => 'Ukuran',
+            //     'status' => 'Created'
+            // ]);
 
             return redirect()->route('kaca.index')->with('success', 'Kaca created successfully');
         }else{

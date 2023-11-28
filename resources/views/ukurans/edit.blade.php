@@ -1,5 +1,5 @@
 <x-app>
-      <div class="container">
+      <div class="container p-5">
             <div class="row">
                   <div class="col-10">
                         <form method="POST" action="{{ route('ukuran.update', $ukuran) }}" enctype="multipart/form-data">

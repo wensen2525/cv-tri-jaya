@@ -9,6 +9,7 @@
                               <thead>
                                     <tr>
                                           <th scope="col">#</th>
+                                          <th>Image</th>
                                           <th scope="col">Nama</th>
                                           <th scope="col">Year Start</th>
                                           <th scope="col">::</th>
@@ -18,6 +19,7 @@
                                     @foreach($proyeks as $index => $proyek)
                                     <tr>
                                           <td>{{ $index+1 }}</td>
+                                          <td><img src="/storage/proyek/gedung/{{ $proyek->gedung_image }}" width="200px" class="img-fluid" alt=""></th>
                                           <td scope="row">{{ $proyek->nama }}</td>
                                           <td scope="row">{{ $proyek->first_year }}</td>
                                           <td scope="row">
