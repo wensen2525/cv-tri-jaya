@@ -1,6 +1,6 @@
-$(document).ready(function(){
+// $(document).ready(function(){
 
-});
+// });
 
 document.onreadystatechange = function () {
       var state = document.readyState

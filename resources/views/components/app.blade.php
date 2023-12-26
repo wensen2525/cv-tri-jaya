@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <x-alert></x-alert>
     <div id="loading" style="max-height: 100vh;max-width: 100vw; min-height: 100vh;min-width: 100vw;display: flex; justify-content: center; align-items: center;overflow:hidden">
         <lottie-player
             autoplay
@@ -26,8 +27,7 @@
             ></lottie-player>
     </div>
     <div id="app" style="display: none">
-    <x-alert></x-alert>
-        @if(Request::is('/') || Request::is('login') || Request::is('register'))
+        @if(Request::is('/') || Request::is('login') || Request::is('register') || Request::is('product') || Request::is('project'))
         <nav class="nav-container navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
             <div class="container-fluid">
 
@@ -44,7 +44,7 @@
                     <span class="burger-icon bi bi-list"></span>
                 </button>
                 {{-- <p class="page-name-placeholder position-absolute top-50 start-50 translate-middle ">{{ $pageTitle }}</p> --}}
-                
+
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"aria-labelledby="offcanvasNavbarLabel">
                     <!-- Left Side Of Navbar -->
                     @auth
@@ -348,7 +348,7 @@
 
             font-size: 1.5rem;
             font-family: 'Space Grotesk', sans-serif;
-            color: #1e1e1e;     
+            color: #1e1e1e;
         }
         .burger-icon {
 
@@ -377,7 +377,7 @@
         background-color: #eaeaea;
         border-radius: 50px;
     }
-    ::-webkit-scrollbar-thumb { 
+    ::-webkit-scrollbar-thumb {
         background-color: #5181C1;
         border-radius: 50px;
     }

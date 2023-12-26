@@ -71,19 +71,19 @@
             padding: 14px 0;
       }
 </style>
-<nav class="sidebar d-none d-sm-block overflow-hidden pb-3 pt-5 position-relative" style="height: 100vh;">
+<nav class="sidebar d-none d-sm-block overflow-hidden pb-3 pt-5 position-sticky top-0" style="height: 100vh;">
       <div class="row p-0 m-0 d-none d-lg-block pb-3">
             <li class="m-0 p-0 position-absolute col-12" style="list-style: none;top:0;">
                   <a class="fw-bold fs-4 text-white d-block ps-4 py-3 text-decoration-none" href="{{ route('home') }}">
                         CV TRI JAYA
                   </a>
-    
+
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                   </form>
             </li>
       </div>
-      
+
       <div class="sidebar-left overflow-y-scroll" style="height: 80vh">
             <div class="position-absolute" style="min-height: 70px;min-width: 100%;background:linear-gradient(#4C48FF 50%,transparent 100%);top:50px"></div>
             <div class="nav flex-column ps-3">
@@ -111,7 +111,7 @@
             </div>
             <div class="position-absolute" style="min-height: 60px;min-width: 100%;background:linear-gradient(#4C48FF 50%,transparent 100%);bottom:55px;transform: rotate(180deg)"></div>
       </div>
-      
+
       <div class="row p-0 m-0 d-none d-lg-block">
             <li class="m-0 p-0 position-absolute col-12" style="list-style: none;bottom:0;">
                   <a class="fw-bold text-white bg-danger d-block ps-4 py-3 text-decoration-none" href="{{ route('logout') }}"
@@ -119,7 +119,7 @@
                               document.getElementById('logout-form').submit();">
                   <i class="bi bi-box-arrow-left pe-2"></i> {{ __('Logout') }}
                   </a>
-    
+
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                   </form>

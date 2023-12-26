@@ -13,6 +13,7 @@
     @vite(['resources/js/app.js'])
 </head>
 <body>
+    <x-alert></x-alert>
     <div id="loading" style="max-height: 100vh;max-width: 100vw; min-height: 100vh;min-width: 100vw;display: flex; justify-content: center; align-items: center;overflow:hidden">
         <lottie-player
             autoplay
@@ -23,7 +24,6 @@
             ></lottie-player>
     </div>
     <div id="app" style="display: none">
-    <x-alert></x-alert>
       <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
@@ -54,7 +54,7 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href=""></a>
                         </li>
