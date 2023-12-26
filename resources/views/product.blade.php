@@ -64,7 +64,7 @@
                                         {{-- <a href="https://www.freepik.com/free-vector/dotted-black-background_43313905.htm#query=dot%20texture&position=0&from_view=keyword&track=ais">Image by juicy_fish</a> on Freepik --}}
                                     @endif
                                 </div>
-                                <a class="ukuran-btn col py-2 text-center" href="">
+                                <a class="ukuran-btn col py-2 text-center" target="_blank" href="https://drive.google.com/file/d/1ZoAsvjTPF1if8KGpWXKRqcWfZbvprFXM/view?usp=sharing">
                                     <i class="info-icon bi bi-info-circle me-3"></i>Cek Ukuran</a>
                             </div>
 
